@@ -1,45 +1,66 @@
-The technique presented is aimed at scientific uncertain and multi-variate spatial data.
+Feature confidence level-sets target scientific uncertain and multivariate spatial data.
 %
-Although there have been efforts to visualize non-spatial uncertain multi-variate data, they are limited for spatial data.
+Although there have been efforts to visualize non-spatial uncertain multivariate data, they are limited for spatial data.
 %
-For comprehensive overviews of these domains we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} and multi-variate spatial data visualization~\cite{he2019multivariate}.
+For comprehensive overviews of these domains separately, we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} and multivariate spatial data visualization~\cite{he2019multivariate}.
 %
 In this section, we restrict our discussion to works most relevant to this study.
 
-In the recent past, there are two notable multi-variate spatial data visualization efforts: fiber surfaces and feature level-sets.
-%
-Fiber surfaces proposed by Carr et al.~\cite{carr2015fiber} are the generalization of isosurfaces to bi-variate data and involve modifying the Marching Cube's algorithm.
-%
-More recently, fiber surfaces, have been extended to multi-variate data~\cite{blecha2020fiber}.
-%
-Feature level-sets are the generalization of isosurfaces to multi-variate data and were proposed by Jankowai and Hotz~\cite{jankowai2020feature}.
-%
-In this paper, we extend and investigate the feature-level sets technique for uncertain multi-variate data. 
 
-Feature level-sets are computed based on a trait specified in attribute space.
+In the recent past, there are two notable multivariate spatial data visualization efforts: fiber surfaces and feature level-sets.
 %
-The trait is analogous to an isovalue for the univariate case, except that for a non-empty feature level-set the trait must exist in attribute space.
+Fiber surfaces proposed by Carr et al.~\cite{carr2015fiber} are the generalization of isosurfaces to bivariate data and involve modifying the Marching Cube's algorithm.
 %
-Traditionally, for a specific trait, first a binary volume is computed, followed by a Euclidean distance transform to generate a distance field, and lastly, isosurfacing of the distance field.
+Klacansky et al.~\cite{klacansky2016fast} proposed a parallelized implementation to speedup generation of exact fiber surfaces.
 %
-At a distance of zero (or a small threshold), the feature in the spatial domain as defined by the trait in attribute space can be extracted.
+Wu et al.~\cite{wu2016direct} perform accurate direct volume rendering of fiber surfaces using higher-order interpolation schemes.
 %
-Additional level-sets can be extracted from the distance field to provide insight regarding the feature structure.
+More recently, fiber surfaces, have been extended to multivariate data by Blecha et al.~\cite{blecha2020fiber}.
 %
-Figure~\ref{} illustrates the visualization pipeline for the generation of feature-level sets.
 
-In ~\cite{jankowai2020feature}, the authors identify multiple opportunities for future research including the definition of the distance field, performance optimizations, trait specification interfaces, etc.
+Feature level-sets, as previously mentioned, are the generalization of isosurfaces to multivariate data and were proposed by Jankowai and Hotz~\cite{jankowai2020feature}.
 %
-In a recent study, Nguyen et al.~\cite{nguyen2020visualization} proposed first smoothing of the distance field using Gaussian kernels before extracting level-sets to visualize coherent structures in Taylor-Couette turbulence flows.
+In ~\cite{jankowai2020feature}, the authors identify multiple opportunities for future research including the definition of the distance metric, performance optimizations, trait specification interfaces, etc.
 %
-In this paper, we propose replacing the distance field level-sets with level-sets showing uncertainty. 
+Nguyen et al.~\cite{nguyen2020visualization} proposed first smoothing of the distance field using Gaussian kernels before extracting level-sets to visualize coherent structures in Taylor-Couette turbulence flows.
 %
-This approach in effect improves the performance of the visualization pipeline by eliminating the Euclidean distance transformation.
+Jankowai et al.~\cite{jankowai2020tensor} explored its application for tensor data. 
 %
-Instead, we compute binary volumes for the feature level-set and the feature confidence level-set. 
+Further, the feature-level sets technique has been implemented for multivariate data visualization within the Inviwo visualization framework~\cite{jonsson2020inviwo}. 
 %
-Zehner et al.~\cite{zehner2010visualization} proposed the use of isosurface envelopes to show confidence for the univariate case.
+In this paper, we extend and investigate the feature-level sets technique for uncertain multivariate data. 
+
+There are several research works aiming to address uncertainty in scientific visualization.
 %
-Using the same definition and extending it to the multivariate case, a feature confidence level-set indicates within which volume the feature will lie with a certain confidence.
+However, faced with occlusion challenges these techniques have largely focused on univariate data~\cite{}.
 %
-We illustrate a notional example of a feature confidence level-set for bi-variate data in Figure~\ref{}.
+In this work, we consider the method by Zehner et al.~\cite{zehner2010visualization} to visualize uncertainty using confidence isosurfaces and glyphs.
+%
+In addition to offering straightforward generalization to multivariate data, confidence isosurfaces are determined on the basis of a specific confidence interval percentage and thus, provides intuitive understanding of uncertainty by producing different shapes of isosurfaces due to uncertainty. 
+%
+In contrast, correctly identifying isovalues to render multiple level-sets often involves trial and error as well as spatial extents information. 
+
+%Feature level-sets are computed based on a trait specified in attribute space.
+%%
+%The trait is analogous to an isovalue for the univariate case, except that for a non-empty feature level-set the trait must exist in attribute space.
+%%
+%Traditionally, for a specific trait, first a binary volume is computed, followed by a Euclidean distance transform to generate a distance field, and lastly, isosurfacing of the distance field.
+%%
+%At a distance of zero (or a small threshold), the feature in the spatial domain as defined by the trait in attribute space can be extracted.
+%%
+%Additional level-sets can be extracted from the distance field to provide insight regarding the feature structure.
+%%
+%Figure~\ref{} illustrates the visualization pipeline for the generation of feature-level sets.
+%
+%%
+%In this paper, we propose replacing the distance field level-sets with level-sets showing uncertainty. 
+%%
+%This approach in effect improves the performance of the visualization pipeline by eliminating the Euclidean distance transformation.
+%%
+%Instead, we compute binary volumes for the feature level-set and the feature confidence level-set. 
+%%
+%Zehner et al.~\cite{zehner2010visualization} proposed the use of isosurface envelopes to show confidence for the univariate case.
+%%
+%Using the same definition and extending it to the multivariate case, a feature confidence level-set indicates within which volume the feature will lie with a certain confidence.
+%%
+%We illustrate a notional example of a feature confidence level-set for bivariate data in Figure~\ref{}.

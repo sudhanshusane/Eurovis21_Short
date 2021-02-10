@@ -3,8 +3,8 @@
 % D.Fellner, v2.03, Dec 14, 2018
 
 
-\title[Visualization of Uncertainty in Multi-Variate Data via Feature Confidence Level-Sets]%
-      {Visualization of Uncertainty in Multi-Variate Data via \\Feature Confidence Level-Sets}
+\title[Visualization of Uncertain Multivariate Data via Feature Confidence Level-Sets]%
+      {Visualization of Uncertain Multivariate Data via \\Feature Confidence Level-Sets}
 
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!

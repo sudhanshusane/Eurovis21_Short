@@ -4,7 +4,7 @@
 
 \documentclass{egpubl}
 \usepackage{eurovis2021}
-
+\newcommand{\fix}[1]{\textcolor{red}{\textbf{\textit{#1}}}}
 % --- for  Annual CONFERENCE
 % \ConferenceSubmission   % uncomment for Conference submission
 % \ConferencePaper        % uncomment for (final) Conference Paper
@@ -45,8 +45,10 @@
 % ------------------------------------------------------------------------
 \usepackage[T1]{fontenc}
 \usepackage{dfadobe}  
-
 \usepackage{cite}  % comment out for biblatex with backend=biber
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
 % ---------------------------
 %\biberVersion
 \BibtexOrBiblatex

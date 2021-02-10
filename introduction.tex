@@ -1,45 +1,118 @@
-In recent years, there has been increasing interest in the visualization of multi-variate and uncertain data.
+In recent years, there has been increasing interest in the visualization of multivariate and uncertain data.
 %
-However, visualization techniques for these data types has often been pursued independently.
+Uncertainty and multivariate data visualization were viewed as major challenges during a Visualization seminar at Daghstuhl in 2011, and led to a book~\cite{hansen2014scientific} providing an overview of the domain. 
 %
-Recently, Jankowai and Hotz~\cite{jankowai2020feature} introduced feature-level sets to generalize the concept of isosurfaces to multi-variate data.
-%
-Generating feature-level sets involves specifying a trait (analogous to an isovalue), computing a binary volume, performing a Euclidean distance transformation to produce a distance field, and finally, performing isosurfacing on the distance field.
-%
-At a distance of zero, the generated isosurface visualizes the zero level-set, i.e., the feature specified by the trait.
-%
-In addition to the zero level-set, the technique proposed the visualizations of level-sets computed over the distance field in order to provide insight on feature structure.
-%
-In this paper, we propose and investigate the augmentation of the zero-level set with isosurfaces representing confidence interval envelopes~\cite{zehner2010visualization}.
-%
-We find this combination of techniques enables the visualization of uncertainty for multi-variate data and offers improvements to scientific insight, performance, and usability of feature-level sets.
-
-Our motivation to visualize confidence interval isosurfaces along with the zero-level set is motivated by two aspects.
-%
-First, most scientific data contains uncertainty and its visualization has become increasingly important.
-%
-Uncertainty and multi-variate data visualization were viewed as major challenges during a Visualization seminar at Daghstuhl in 2011, and led to a book~\cite{hansen2014scientific} providing an overview of the domain. 
-%
-One challenge of visualizing uncertainty for multi-variate data has been occlusion (for example, a confidence interval envelope for each variable isosurface).
-%
-With feature level-sets, the zero level-set enables the visualization of a feature defined across multiple attributes using a single isosurface (versus using an isosurface for each attribute).
-%
-Similarly, this concept can be extended to visualize uncertainty across multiple dimensions while introducing minimal occlusion. 
-%
-Second, computing the distance field for feature-level sets can be expensive and limit interactivity given the need to perform an Euclidean Distance Transformation (EDT).
-%
-Further, the insight provided by distance fields (DF) level-sets can be limited.
-%
-While visualizing the zero level-set is important, the visualization of each successive DF level-set provides less information.
-%
-In our proposed approach, we optimize the pipeline by eliminating the EDT step and instead only compute binary volumes for the zero level-set and confidence interval (CI) isosurfaces.
-%
-Further, we find that compared to visualizing DF level-sets, visualizing the uncertainty of the scientific data via CI level-sets provides greater insight into the features of the domain and guides trait specification.
+Although most scientific data extracted from computational simulations is of, both, uncertain and multivariate nature, efforts to develop scientific visualization techniques for these data types has often been pursued independently due to the challenges involved.
 %
 
-Overall, our contributions in this work include:
-\begin{itemize}
-\item An extension of the feature-level sets technique to visualize uncertainty in multi-variate data.
-\item A simple optimization for the fast computation of feature and confidence interval level-sets for a specific trait.
-\item A qualitative evaluation of our technique for multiple data sets.
-\end{itemize}
+Zehner et al.~\cite{zehner2010visualization} proposed an intuitive approach to visualize uncertainty for univariate data via the use of \textit{confidence isosurfaces} or glyphs~\cite{zehner2010visualization}.
+%
+In the case of multivariate data, individual confidence isosurfaces or gylphs for each variable, however, could lead to occlusion and has limited dimension scalability.
+%
+Recently, Jankowai and Hotz~\cite{jankowai2020feature} proposed a surface-based visualization technique for complex features in multivariate data called \textit{feature level-sets}. 
+%
+Feature-level sets are the generalization of isosurfaces to multivariate data.
+%
+They are surfaces $FLS_{T}$ in the spatial domain initialized by the distance field generated for a \textit{trait} $T$ defined in attribute space.
+%
+The ``zero'' feature level-set, $ZLS_{T}$, corresponds to the feature in the spatial domain that matches the trait exactly.
+%
+In many cases, the $ZLS_{T}$ is visualized using a small threshold distance to highlight the points in the domain that are closest to the feature in attribute space.
+%
+Additional level-sets for larger distances show secondary feature structures.
+%
+In this paper, to enable visualization of uncertain multivariate data we propose \textit{feature confidence level-sets}, the generalization of confidence isosurfaces to multivariate data via feature level-sets. 
+
+Besides offering the capability to visualize uncertain multivariate data, we believe feature confidence level-sets benefit from utilizing distribution information to produce level-sets that improve secondary feature structure visualization.
+%
+In the original work, Jankowai and Hotz demonstrate feature level-sets using multiple level-sets initialized by the distance field.
+%
+They identify that a shortcoming of computing multiple level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the $ZLS_{T}$ cannot be distinguised in the final level-set rendering.
+%
+Further, we conjecture that as the Euclidean distance from the $ZLS_{T}$ increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
+%
+In this study, we compute multiple distance fields: $distance_{T}$ based on the trait definition, and additional fields $distance_{T,C}$ based on the trait definition and a confidence interval percentage $C$. 
+%
+Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $ZLS_{T,C}$.
+%
+We demonstrate the technique using five uncertain multivariate data sets, and qualitatively compare the results with using multiple level-sets initialized by $distance_{T}$.
+
+%In all, we contribute scientific visualization technique for uncertain multivariate data.
+We organize the remainder of this paper as follows:
+%
+Section~\ref{sec:related} discusses work related to the presented technique. 
+%
+Section~\ref{sec:method} formally introduces feature confidence level-sets and specifies any limits in scope considered for this study.
+%
+In Section~\ref{sec:study}, we provide a short study overview, followed by our results in Section~\ref{sec:results}.
+%
+Finally, we discuss various aspects of possible future work and conclude in Section~\ref{sec:conclusion}
+
+%We organize the remainder of this paper as follows:
+%
+%Section~\ref{sec:related} provides 
+
+%In this paper, we propodistance fields.
+%
+%Although multiple level-sets are intended to convery secondary structures, they suffer from a lack of discernibility, i.e., .
+%
+%
+%they identify that a level-set based on the distance 
+%However, they identify a shortcomings of multiple level-sets. Specifically, ,  , and encourage exploration of alternative options. 
+%
+%The use of feature confidence level-sets is motivated by two aspects.
+%%
+%First, to introduce a framework to visualize uncertain multivariate data.
+%%
+%And second, trait distance fields computed for feature level-sets have certain shortcomings.
+%%
+%The 
+%
+%The feature itself is represented as the zero feature level-set, although in practice a small threshold value produces a smoother
+%
+%Feature level-sets involve first specifying a \textit{trait} (analogous to an isovalue) in attribute space, then computing a trait distance field in the spatial domain, and finally, visualizing the distance field using one or more isosurfaces. 
+%%
+%
+%%
+%In this paper, we propose the concept of feature confidence level-sets, the  of confidence isosurfaces to multivariate data via feature level-sets.
+%
+%
+%
+%Generating feature-level sets involves specifying a trait (analogous to an isovalue), computing a binary volume, performing a Euclidean distance transformation to produce a distance field, and finally, performing isosurfacing on the distance field.
+%%
+%At a distance of zero, the generated isosurface visualizes the zero level-set, i.e., the feature specified by the trait.
+%%
+%In addition to the zero level-set, the technique proposed the visualizations of level-sets computed over the distance field in order to provide insight on feature structure.
+%%
+%In this paper, we propose and investigate the augmentation of the zero-level set with isosurfaces representing confidence interval envelopes~\cite{zehner2010visualization}.
+%%
+%We find this combination of techniques enables the visualization of uncertainty for multivariate data and offers improvements to scientific insight, performance, and usability of feature-level sets.
+%
+%Our motivation to visualize confidence interval isosurfaces along with the zero-level set is motivated by two aspects.
+%%
+%First, most scientific data contains uncertainty and its visualization has become increasingly important.
+%%
+%%
+%One challenge of visualizing uncertainty for multivariate data has been occlusion (for example, a confidence interval envelope for each variable isosurface).
+%%
+%With feature level-sets, the zero level-set enables the visualization of a feature defined across multiple attributes using a single isosurface (versus using an isosurface for each attribute).
+%%
+%Similarly, this concept can be extended to visualize uncertainty across multiple dimensions while introducing minimal occlusion. 
+%%
+%Second, computing the distance field for feature-level sets can be expensive and limit interactivity given the need to perform an Euclidean Distance Transformation (EDT).
+%%
+%Further, the insight provided by distance fields (DF) level-sets can be limited.
+%%
+%While visualizing the zero level-set is important, the visualization of each successive DF level-set provides less information.
+%%
+%In our proposed approach, we optimize the pipeline by eliminating the EDT step and instead only compute binary volumes for the zero level-set and confidence interval (CI) isosurfaces.
+%%
+%Further, we find that compared to visualizing DF level-sets, visualizing the uncertainty of the scientific data via CI level-sets provides greater insight into the features of the domain and guides trait specification.
+%%
+%
+%Overall, our contributions in this work include:
+%\begin{itemize}
+%\item An extension of the feature-level sets technique to visualize uncertainty in multivariate data.
+%\item A simple optimization for the fast computation of feature and confidence interval level-sets for a specific trait.
+%\item A qualitative evaluation of our technique for multiple data sets.
+%\end{itemize}
