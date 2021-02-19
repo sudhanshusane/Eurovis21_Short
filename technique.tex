@@ -5,6 +5,8 @@
 
 We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, generation of feature level-sets, and finally, generation of feature confidence level-sets.
 
+\vspace{-2mm}
+\subsection{Uncertain Multivariate Data}
 %
 From~\cite{jankowai2020feature}, general multivariate data is a set of fields
 \begin{equation}
@@ -28,6 +30,7 @@ For our study, we used a maximum of $n = 2$.
 
 For uncertainty in each dimension $i$ of attribute space, we assumed the normal distribution of values at each grid point in $D$ and represented it using $mean_{i}$ and $SD_{i}$. 
 
+\vspace{-2mm}
 \subsection{Trait Specification}
 Traits can be defined generally as artibrary geometries in attribute space $\mathcal{A}$ whose equivalent counterparts in the spatial domain $D$ are identified as features, i.e., $T\subset\mathcal{A}$.
 %
@@ -44,6 +47,7 @@ where $L_{i}$ is the lower bound and $U_{i}$ is the upper bound of the interval 
 %
 As an example, in a visualization of $\mathcal{A}$ for $n = 2$ using a scatter plot, a trait by our definition would be a rectangular selection.
 
+\vspace{-2mm}
 \subsection{Feature Level-Sets}
 In general, a feature is defined as the pre-image of the trait $T$ in spatial domain
 \begin{equation}
@@ -81,6 +85,7 @@ For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T
 As the value of $K$ increases, we believe its relevance reduces given discernability concerns and greater distance from the feature in the spatial domain.
 %
 
+\vspace{-2mm}
 \subsection{Feature Confidence Level-Sets}
 Uncertainty in multivariate data can result in different shapes of $ZLS_{T}$.
 %
@@ -120,4 +125,5 @@ distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
 %
 In our study, we are only interested in a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
-
+%
+Figure~\ref{fig:example} provides a notional example showing the different steps to generate $FLS_{T}$ and $FCLS_{T,C}$.
