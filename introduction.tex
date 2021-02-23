@@ -1,50 +1,91 @@
-%In recent years, there has been increasing interest in the visualization of multivariate and uncertain data.
+Uncertain and multivariate data visualization were viewed as major challenges during a Visualization seminar at Daghstuhl in 2011, and led to a book~\cite{hansen2014scientific} providing an overview of the domain. 
 %
-Uncertainty and multivariate data visualization were viewed as major challenges during a Visualization seminar at Daghstuhl in 2011, and led to a book~\cite{hansen2014scientific} providing an overview of the domain. 
+Although scientific data extracted from computational simulations is often of both, uncertain and multivariate nature, efforts to develop visualization techniques for these data types have been pursued independently due to the challenges involved.
 %
-Although most scientific data extracted from computational simulations is of, both, uncertain and multivariate nature, efforts to develop scientific visualization techniques for these data types has often been pursued independently due to the challenges involved.
-%
+In this paper, we build upon a recent advancement in multivariate data visualization and extend an existing univariate uncertain data visualization technique to enable uncertain multivariate data visualization.
 
-Zehner et al.~\cite{zehner2010visualization} proposed an intuitive approach to visualize uncertainty for univariate data via the use of \textit{confidence isosurfaces} or glyphs~\cite{zehner2010visualization}.
-%
-In the case of multivariate data, individual confidence isosurfaces or gylphs for each variable, however, could lead to occlusion and has limited dimension scalability.
-%
 Recently, Jankowai and Hotz~\cite{jankowai2020feature} proposed a surface-based visualization technique for complex features in multivariate data called \textit{feature level-sets}. 
 %
 Feature-level sets are the generalization of isosurfaces to multivariate data.
 %
-They are surfaces $FLS_{T}$ in the spatial domain initialized by the distance field generated for a \textit{trait} $T$ defined in attribute space.
+They are surfaces in the spatial domain initialized by the distance field generated for a \textit{trait} defined in attribute space.
 %
-The ``zero'' feature level-set, $ZLS_{T}$, corresponds to the feature in the spatial domain that matches the trait exactly.
+The ``zero'' feature level-set corresponds to the feature in the spatial domain that matches the trait exactly.
 %
-In many cases, the $ZLS_{T}$ is visualized using a small threshold distance to highlight the points in the domain that are closest to the feature in attribute space.
+In many cases, it is visualized using a small threshold distance to highlight the points in the domain that are closest to the feature.
 %
 Additional level-sets for larger distances show secondary feature structures.
 %
-In this paper, to enable visualization of uncertain multivariate data we propose \textit{feature confidence level-sets}, the generalization of confidence isosurfaces to multivariate data via feature level-sets. 
 
-Besides offering the capability to visualize uncertain multivariate data, we believe feature confidence level-sets 
-%benefit from utilizing distribution information to produce level-sets 
-produce isosurfaces that improve secondary feature structure visualization.
-%
-In the original work, Jankowai and Hotz demonstrate feature level-sets using multiple level-sets initialized by a single distance field.
-%
-They identify that a shortcoming of computing multiple level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the $ZLS_{T}$ cannot be distinguised in the final level-set rendering.
-%
-Further, we conjecture that as the Euclidean distance from the $ZLS_{T}$ increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
-%
-In our approach, we compute multiple distance fields: $distance_{T}$ based on the trait definition, and additional fields $distance_{T,C}$ based on the trait definition and a confidence interval percentage $C$. 
-%
-Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $FCLS_{T,C}$.
-%
-We demonstrate the technique using five uncertain multivariate data sets, and qualitatively compare the results with using multiple level-sets initialized by $distance_{T}$.
 
-%We organize the remainder of this paper as follows:
+We extend an existing intuitive approach to visualize uncertainty for univariate data using \textit{confidence isosurfaces}~\cite{zehner2010visualization} to multivariate data via feature level-sets.
+%
+We propose \textit{feature confidence level-sets}, the generalization of confidence isosurfaces to multivariate data.
+%
+Our motivation is twofold.
+%
+First, to the best of our knowledge this work presents the first uncertain multivariate spatial data visualization technique. 
+%
+Second, compared to feature level-sets alone, feature confidence level-sets offer improved secondary feature structure visualization.
+%
+In particular, Jankowai and Hotz identify that a shortcoming of computing multiple feature level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the feature cannot be distinguised in the final level-set rendering.
 %%
-%Section~\ref{sec:related} discusses work related to the presented technique. 
+Further, we conjecture that as the Euclidean distance from the feature increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
 %%
-%Section~\ref{sec:method} formally introduces feature confidence level-sets and specifies any limits in scope considered for this study.
+In our approach, we compute distance fields based on the trait definition and additional fields based on the trait definition as well as a confidence percentage, and render level-sets extracted from these fields.
 %%
-%In Section~\ref{sec:study}, we provide a short study overview, followed by our results in Section~\ref{sec:results}.
+%Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $FCLS_{T,C}$.
 %%
-%Finally, we discuss various aspects of possible future work and conclude in Section~\ref{sec:conclusion}
+We demonstrate our technique using five uncertain multivariate data sets.
+%, and qualitatively compare the results with using multiple level-sets initialized by $distance_{T}$. 
+
+%In recent years, there has been increasing interest in the visualization of multivariate and uncertain data.
+%%
+%Uncertainty and multivariate data visualization were viewed as major challenges during a Visualization seminar at Daghstuhl in 2011, and led to a book~\cite{hansen2014scientific} providing an overview of the domain. 
+%%
+%Although most scientific data extracted from computational simulations is of, both, uncertain and multivariate nature, efforts to develop scientific visualization techniques for these data types has often been pursued independently due to the challenges involved.
+%%
+%
+%Zehner et al.~\cite{zehner2010visualization} proposed an intuitive approach to visualize uncertainty for univariate data via the use of \textit{confidence isosurfaces} or glyphs~\cite{zehner2010visualization}.
+%%
+%In the case of multivariate data, individual confidence isosurfaces or gylphs for each variable, however, could lead to occlusion and has limited dimension scalability.
+%%
+%Recently, Jankowai and Hotz~\cite{jankowai2020feature} proposed a surface-based visualization technique for complex features in multivariate data called \textit{feature level-sets}. 
+%%
+%Feature-level sets are the generalization of isosurfaces to multivariate data.
+%%
+%They are surfaces $FLS_{T}$ in the spatial domain initialized by the distance field generated for a \textit{trait} $T$ defined in attribute space.
+%%
+%The ``zero'' feature level-set, $ZLS_{T}$, corresponds to the feature in the spatial domain that matches the trait exactly.
+%%
+%In many cases, the $ZLS_{T}$ is visualized using a small threshold distance to highlight the points in the domain that are closest to the feature in attribute space.
+%%
+%Additional level-sets for larger distances show secondary feature structures.
+%%
+%In this paper, to enable visualization of uncertain multivariate data we propose \textit{feature confidence level-sets}, the generalization of confidence isosurfaces to multivariate data via feature level-sets. 
+%
+%Besides offering the capability to visualize uncertain multivariate data, we believe feature confidence level-sets 
+%%benefit from utilizing distribution information to produce level-sets 
+%produce isosurfaces that improve secondary feature structure visualization.
+%%
+%In the original work, Jankowai and Hotz demonstrate feature level-sets using multiple level-sets initialized by a single distance field.
+%%
+%They identify that a shortcoming of computing multiple level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the $ZLS_{T}$ cannot be distinguised in the final level-set rendering.
+%%
+%Further, we conjecture that as the Euclidean distance from the $ZLS_{T}$ increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
+%%
+%In our approach, we compute multiple distance fields: $distance_{T}$ based on the trait definition, and additional fields $distance_{T,C}$ based on the trait definition and a confidence interval percentage $C$. 
+%%
+%Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $FCLS_{T,C}$.
+%%
+%We demonstrate the technique using five uncertain multivariate data sets, and qualitatively compare the results with using multiple level-sets initialized by $distance_{T}$.
+%
+%%We organize the remainder of this paper as follows:
+%%%
+%%Section~\ref{sec:related} discusses work related to the presented technique. 
+%%%
+%%Section~\ref{sec:method} formally introduces feature confidence level-sets and specifies any limits in scope considered for this study.
+%%%
+%%In Section~\ref{sec:study}, we provide a short study overview, followed by our results in Section~\ref{sec:results}.
+%%%
+%%Finally, we discuss various aspects of possible future work and conclude in Section~\ref{sec:conclusion}

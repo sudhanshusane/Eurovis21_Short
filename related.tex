@@ -1,45 +1,61 @@
-%Feature confidence level-sets target scientific uncertain and multivariate spatial data.
+%Feature confidence level-sets target scientific uncertain multivariate spatial data.
 %%
-%Although there have been efforts to visualize non-spatial uncertain multivariate data, they are limited for spatial data.
-%%
-%For comprehensive overviews of these domains separately, we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} and multivariate spatial data visualization~\cite{he2019multivariate}.
-%%
-%In this section, we restrict our discussion to works most relevant to this study.
-
+Although there have been efforts to visualize non-spatial uncertain multivariate data, they are limited for spatial data.
+%
+For comprehensive overviews, we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} and multivariate spatial data visualization~\cite{he2019multivariate}.
+%
+In this section, we restrict our discussion to works most relevant to this study.
 
 In the recent past, there are two notable multivariate spatial data visualization efforts: fiber surfaces and feature level-sets.
 %
 Fiber surfaces proposed by Carr et al.~\cite{carr2015fiber} are the generalization of isosurfaces to bivariate data and involve modifying the Marching Cube's algorithm.
 %
-Klacansky et al.~\cite{klacansky2016fast} proposed a parallelized implementation to speedup generation of exact fiber surfaces.
+Parallelized implementations~\cite{klacansky2016fast}, direct volume rendering using higher-order interpolation schemes~\cite{wu2016direct}, and extensions to multivariate data~\cite{blecha2020fiber} have been studied for fiber surfaces.  
 %
-Wu et al.~\cite{wu2016direct} perform accurate direct volume rendering of fiber surfaces using higher-order interpolation schemes.
-%
-More recently, fiber surfaces, have been extended to multivariate data by Blecha et al.~\cite{blecha2020fiber}.
-%
-
 Feature level-sets, as previously mentioned, are the generalization of isosurfaces to multivariate data and were proposed by Jankowai and Hotz~\cite{jankowai2020feature}.
 %
-In ~\cite{jankowai2020feature}, the authors identify multiple opportunities for future research including the definition of the distance metric, performance optimizations, trait specification interfaces, etc.
+Smoothing of the distance field using Guassian kernels~\cite{nguyen2020visualization}, application to tensor data~\cite{jankowai2020tensor}, and use within visualization frameworks~\cite{jonsson2020inviwo} have been studied for feature level-sets.
 %
-Nguyen et al.~\cite{nguyen2020visualization} proposed first smoothing of the distance field using Gaussian kernels before extracting level-sets to visualize coherent structures in Taylor-Couette turbulence flows.
+%In~\cite{jankowai2020feature}, the authors identify multiple opportunities for future research including the definition of the distance metric, addressing discernibility shortcomings, performance optimizations, trait specification interfaces, etc.
 %
-Jankowai et al.~\cite{jankowai2020tensor} explored its application for tensor data. 
+Current literature, however, lacks research proposing techniques to visualize uncertain multivariate data.
 %
-Further, the feature-level sets technique has been implemented for multivariate data visualization within the Inviwo visualization framework~\cite{jonsson2020inviwo}. 
-%
-In this paper, we extend and investigate the feature-level sets technique for uncertain multivariate data. 
+%In this paper, we propose a technique to visualize such data via feature level-sets.
 
-There are several research works aiming to address uncertainty in scientific visualization.
-%
-However, faced with occlusion challenges these techniques have largely focused on univariate data~\cite{}.
-%
-In this work, we build upon the method by Zehner et al.~\cite{zehner2010visualization} to visualize uncertainty using confidence isosurfaces.
-%
-In addition to offering straightforward generalization to multivariate data, confidence isosurfaces are determined on the basis of a specific confidence interval percentage and thus, provides intuitive understanding of uncertainty by producing different shapes of isosurfaces due to uncertainty. 
-%
-In contrast, correctly identifying isovalues to render multiple level-sets often involves trial and error as well as spatial extents knowledge. 
 
+%In the recent past, there are two notable multivariate spatial data visualization efforts: fiber surfaces and feature level-sets.
+%%
+%Fiber surfaces proposed by Carr et al.~\cite{carr2015fiber} are the generalization of isosurfaces to bivariate data and involve modifying the Marching Cube's algorithm.
+%%
+%Klacansky et al.~\cite{klacansky2016fast} proposed a parallelized implementation to speedup generation of exact fiber surfaces.
+%%
+%Wu et al.~\cite{wu2016direct} perform accurate direct volume rendering of fiber surfaces using higher-order interpolation schemes.
+%%
+%More recently, fiber surfaces, have been extended to multivariate data by Blecha et al.~\cite{blecha2020fiber}.
+%%
+%
+%Feature level-sets, as previously mentioned, are the generalization of isosurfaces to multivariate data and were proposed by Jankowai and Hotz~\cite{jankowai2020feature}.
+%%
+%In ~\cite{jankowai2020feature}, the authors identify multiple opportunities for future research including the definition of the distance metric, performance optimizations, trait specification interfaces, etc.
+%%
+%Nguyen et al.~\cite{nguyen2020visualization} proposed first smoothing of the distance field using Gaussian kernels before extracting level-sets to visualize coherent structures in Taylor-Couette turbulence flows.
+%%
+%Jankowai et al.~\cite{jankowai2020tensor} explored its application for tensor data. 
+%%
+%Further, the feature-level sets technique has been implemented for multivariate data visualization within the Inviwo visualization framework~\cite{jonsson2020inviwo}. 
+%%
+%In this paper, we extend and investigate the feature-level sets technique for uncertain multivariate data. 
+
+%There are several research works aiming to address uncertainty in scientific visualization.
+%
+%However, faced with occlusion challenges these techniques have largely focused on univariate data~\cite{}.
+%
+%In this work, 
+We extend the method by Zehner et al.~\cite{zehner2010visualization} to visualize uncertainty using confidence isosurfaces.
+%
+In addition to offering straightforward generalization to multivariate data, confidence isosurfaces are determined on the basis of a specific confidence interval percentage and thus, provides an intuitive understanding by producing different shapes of isosurfaces due to uncertainty. 
+%
+%In contrast, correctly identifying isovalues to render multiple level-sets often involves trial and error as well as spatial extents knowledge. 
 %Feature level-sets are computed based on a trait specified in attribute space.
 %%
 %The trait is analogous to an isovalue for the univariate case, except that for a non-empty feature level-set the trait must exist in attribute space.
