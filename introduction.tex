@@ -4,32 +4,31 @@ Although scientific data extracted from computational simulations is often of bo
 %
 In this paper, we build upon a recent advancement in multivariate data visualization and extend an existing univariate uncertain data visualization technique to enable uncertain multivariate data visualization.
 
-Recently, Jankowai and Hotz~\cite{jankowai2020feature} proposed a surface-based visualization technique for complex features in multivariate data called \textit{feature level-sets}. 
+Recently, Jankowai and Hotz~\cite{jankowai2020feature} proposed a surface-based visualization technique for \fix{(gaining insight into/understanding/discovering?)} complex features in multivariate data called \textit{feature level-sets}. 
 %
-Feature-level sets are the generalization of isosurfaces to multivariate data.
+Feature-level sets are the generalization of isosurfaces \fix{(or univariate level-sets)} to multivariate data.
 %
-They are surfaces in the spatial domain initialized by the distance field generated for a \textit{trait} defined in attribute space.
+They are surfaces in the spatial domain initialized by the distance field \fix{("derived from" instead of "generated for"?)} generated for a \textit{trait} defined in attribute space.
 %
 The ``zero'' feature level-set corresponds to the feature in the spatial domain that matches the trait exactly.
 %
 In many cases, it is visualized using a small threshold distance to highlight the points in the domain that are closest to the feature.
 %
-Additional level-sets for larger distances show secondary feature structures.
-%
+Additional level-sets for larger distances show secondary feature structures. \fix{(Please refer to Sec. 3.1-3.3 for technical details/definitions regarding attribute space, traits, distance fields, feature level-sets, and secondary feature structures.)}%
 
 
-We extend an existing intuitive approach to visualize uncertainty for univariate data using \textit{confidence isosurfaces}~\cite{zehner2010visualization} to multivariate data via feature level-sets.
+We extend an existing intuitive \fix{(Can the word "intuitive" be deleted?)} approach to visualize uncertainty for univariate data using \textit{confidence isosurfaces}~\cite{zehner2010visualization} to multivariate data via feature level-sets.
 %
 We propose \textit{feature confidence level-sets}, the generalization of confidence isosurfaces to multivariate data.
 %
-Our motivation is twofold.
+Our motivation is twofold \fix{(I would suggest swapping the order of the first and second motivations. This is because the paragraph under second point really is a strong technical motivation. In the end, we may say our second motivation is that this area is unexplored to our best knowledge. One option is removing the sentence "our motivation is twofold", and in the end stating that the uncertainty vis of feature level-sets is unexplored area to the best of our knowledge.)}.
 %
 First, to the best of our knowledge we believe this work considers a previously unexplored area. 
 %presents the first uncertain multivariate spatial data visualization technique. 
 %
 Second, compared to feature level-sets alone, feature confidence level-sets offer improved secondary feature structure visualization.
 %
-In particular, Jankowai and Hotz identify that a shortcoming of computing multiple feature level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the feature cannot be distinguised in the final level-set rendering.
+In particular, Jankowai and Hotz identify that a shortcoming of computing multiple feature level-sets using a single Euclidean distance is discernibility, i.e., points with equal distance to the feature cannot be distinguished in the final level-set rendering.
 %%
 Further, we conjecture that as the Euclidean distance from the feature increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
 %%
@@ -37,7 +36,7 @@ In our approach, we compute distance fields based on the trait definition and ad
 %%
 %Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $FCLS_{T,C}$.
 %%
-We demonstrate our technique using five uncertain multivariate data sets.
+We demonstrate our technique using five \fix{(synthetic, real, and simulation instead of "five"?)} uncertain multivariate data sets.
 %, and qualitatively compare the results with using multiple level-sets initialized by $distance_{T}$. 
 
 %In recent years, there has been increasing interest in the visualization of multivariate and uncertain data.
