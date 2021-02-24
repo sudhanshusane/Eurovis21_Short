@@ -2,13 +2,13 @@
 %%
 Although there have been efforts to visualize non-spatial uncertain multivariate data, they are limited for spatial data.
 %
-For comprehensive overviews, we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} and multivariate spatial data visualization~\cite{he2019multivariate}.
+For comprehensive overviews, we refer readers to state-of-the-art reports for uncertainty visualization~\cite{Bonneau2014} \fix{(Here we may add ~\cite{JohnsonSanderson2003, PotterRosenJohnson2012})} and multivariate spatial data visualization~\cite{he2019multivariate}.
 %
 In this section, we restrict our discussion to works most relevant to this study.
 
 In the recent past, there are two notable multivariate spatial data visualization efforts: fiber surfaces and feature level-sets.
 %
-Fiber surfaces proposed by Carr et al.~\cite{carr2015fiber} are the generalization of isosurfaces to bivariate data and involve modifying the Marching Cube's algorithm.
+Fiber surfaces proposed by Carr \textit{et al.}~\cite{carr2015fiber} are the generalization of isosurfaces to bivariate data and involve modifying the Marching Cube's algorithm.
 %
 Parallelized implementations~\cite{klacansky2016fast}, direct volume rendering using higher-order interpolation schemes~\cite{wu2016direct}, and extensions to multivariate data~\cite{blecha2020fiber} have been studied for fiber surfaces.  
 %
@@ -51,7 +51,7 @@ Current literature, however, lacks research proposing techniques to visualize un
 %However, faced with occlusion challenges these techniques have largely focused on univariate data~\cite{}.
 %
 %In this work, 
-We extend the method by Zehner et al.~\cite{zehner2010visualization} to visualize uncertainty using confidence isosurfaces.
+\fix{Several recent research investigated quantification and visualization of uncertainty in univariate isosurfaces~\cite{CRJ:Gri2004, pothkow:2011:PMC, AthawaleJohnson2019}.} We extend the method by Zehner \textit{et al.}~\cite{zehner2010visualization} to visualize uncertainty using confidence isosurfaces. \fix{(or We extend the idea of confidence isosurfaces proposed by Zehner \textit{et al.}~\cite{zehner2010visualization} for uncertainty visualization of univariate data to multivariate data.)}
 %
 In addition to offering straightforward generalization to multivariate data, confidence isosurfaces are determined on the basis of a specific confidence interval percentage and thus, provides an intuitive understanding by producing different shapes of isosurfaces due to uncertainty. 
 %
