@@ -58,9 +58,9 @@ For our limited definition of a trait $T$ and $mean_{i}$ field of each dimension
 \begin{equation}
 f^{-1}(T) = \left\{ x \in D |\; \forall i\;mean_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset\right\}
 \end{equation}
-To visualize the feature and its secondary structures, we performed three steps.
+To visualize the feature and its secondary structures, we performed three steps:
 %
-First, for trait $T$, we computed a binary volume $bvolume_{T}$ to represent the absense or existence of the feature at a specific grid point.
+First, for trait $T$, we computed a binary volume $bvolume_{T}$ to represent the absence or existence of the feature at a specific grid point.
 %
 \begin{equation}
   bvolume_{T}(x) = \left \{
@@ -72,17 +72,18 @@ First, for trait $T$, we computed a binary volume $bvolume_{T}$ to represent the
 %
 Second, we performed a Euclidean distance transformation (EDT) using $bvolume_{T}$ as input to produce a distance field $distance_{T}$. 
 %
-We used an algorithm proposed by Saito et al.~\cite{saito1994new} to perform EDT.
+We used an algorithm proposed by Saito \textit{et al.}~\cite{saito1994new} to perform EDT.
 %
-As a final step, we can compute feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field
+As a final step, we can compute feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field \fix{(derived for trait T.)}
 %
 \begin{equation} 
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
 \end{equation}
 
 For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T,\epsilon}$ as $ZLS_{T}$.
+\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
 %
-As the value of $K$ increases, we believe its relevance reduces given discernability concerns and greater distance from the feature in the spatial domain.
+As the value of $K$ increases, we believe \fix{(instead of saying "we believe", should we refer to ~\cite{jankowai2020feature}, as we did in the Introduction last paragraph?)} its relevance reduces given discernibility concerns and greater distance from the feature in the spatial domain.
 %
 
 \vspace{-2mm}
@@ -96,6 +97,7 @@ Similar to the steps we used to compute $FLS_{T}$, to extract feature confidence
 To achieve this, we used the method by Zehner et al.~\cite{zehner2010visualization}. 
 %
 We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence $C$ and then for each dimension $i$ calculate $bounds_{i,C}$
+\fix{(should we replace variable C with variable Z, e.g.,  $bounds_{i,Z}(x)$ and so on, everywhere below? Only a suggestion for improving readability.)}
 \begin{equation}
 bound_{i,lower}(x) = mean_{i}(x) - Z*SD_{i}(x),
 \end{equation}
@@ -126,4 +128,4 @@ distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 %
 In our study, we are only interested in a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
 %
-Figure~\ref{fig:example} provides a notional example showing the different steps to generate $FLS_{T}$ and $FCLS_{T,C}$.
+Figure~\ref{fig:example} provides a notional example showing the different steps to generate $FLS_{T}$ and $FCLS_{T,C}$ \fix{(Keep only $FCLS_{T,C}$ here if you mention about $FLS_{T}$ in the last paragraph of Sec. 3.3)}.
