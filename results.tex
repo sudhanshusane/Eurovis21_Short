@@ -1,19 +1,24 @@
-\input{tangle.tex}
-We demonstrate the use of feature confidence level-sets using five data sets.
+%\input{tangle.tex}
+We demonstrated the use of feature confidence level-sets using five data sets.
 %
-Specifically, we consider an analytical tangle function~\cite{knoll2009fast}, an EF-5 Tornado~\cite{atmos10100578}, the ethanediol molecule~\cite{} \fix{(reference is missing here)}, Red Sea and Gulf of Aden~(RSGOA) eddy ensemble~\cite{sanikommu2020impact} and Earth's mantel convection~\cite{shahnas2017mid} data.
+Specifically, we considered an analytical tangle function~\cite{knoll2009fast}, an EF-5 Tornado~\cite{atmos10100578}, an ethanediol molecule from a chemistry simulation, Red Sea and Gulf of Aden~(RSGOA) eddy ensemble~\cite{sanikommu2020impact} and Earth's mantel convection~\cite{shahnas2017mid} data.
 %
 We defined traits based on prior knowledge of features of interest in the data.
 %
-While our study demonstrates feature confidence level-sets for univariate and bivariate data, the approach can be applied to higher dimensions \fix{(Should we remove the part "the approach can be applied to higher dimensions" since we do not have results for n>2, but we can state the same in the future work section?)}.
+While our study demonstrated feature confidence level-sets for univariate and bivariate data, the approach can be applied to higher dimensions.\fix{Can we get an example in for a third?***}
+%\fix{(Should we remove the part "the approach can be applied to higher dimensions" since we do not have results for n>2, but we can state the same in the future work section?)}.
 %
-For this study, each attribute is represented using a $mean$ and $SD$ field. 
+For this study, each attribute was represented using a $mean$ and $SD$ field. 
 %
 For the RSGOA ensemble dataset, we computed $mean$ and $SD$ fields from ensemble members. 
 %
 For every other data set with single scalar fields, we synthetically estimated $SD$ at each grid point by sampling the local neighborhood.
 %
-For each data set, we visualize the $ZLS_{T}$ individually \fix{(or separately)}, and augment it with a semi-opaque, single feature level-set $FLS_{T,K}$ for some level $K$, or a feature confidence level-set $FCLS_{T,C}$ for some confidence $C$ (and level $\epsilon$).
+For each data set, we visualize the $ZLS_{T}$ both in isolation and augmented with $FCLS_{T,C}$. 
+%
+When visualized together, the $ZLS_{T}$ is shown using an opaque isosurface, and the $FCLS_{T,C}$ is shown using an isosurface colored with the same hue and 25\% opacity.
+
+%also augment it with a semi-opaque, single feature level-set $FLS_{T,K}$ for some level $K$, or a feature confidence level-set $FCLS_{T,C}$ for some confidence $C$ (and level $\epsilon$).
 %
 
 For all data sets considered, as expected we found $FLS_{T,K}$ has the shortcoming of discernibility.
@@ -26,7 +31,7 @@ For example, for the tangle function where uncertainty is higher near the links 
 
 In comparison to $FLS_{T,K}$, for uncertain multivariate data, by leveraging the information pertaining to field distribution~($mean$, $SD$), $FCLS_{T,C}$ provided improved secondary structure visualization.
 %
-\fix{(Should we add boxes/zoomed-in views to the examples below to illustrate improvements achieved using our  $FCLS_{T,C}$? For example, we may show boxes where molecular topology is discovered nicely or one link and one blob in the case of the tangle function. This will enhance the interpretability of results.)}
+%\fix{(Should we add boxes/zoomed-in views to the examples below to illustrate improvements achieved using our  $FCLS_{T,C}$? For example, we may show boxes where molecular topology is discovered nicely or one link and one blob in the case of the tangle function. This will enhance the interpretability of results.)}
 For example, we observed additional weaker tornado vortices in Figure~\ref{fig:tornado_fcls}, improved molecular structure information for the ethanediol covalent and non-covalent bonds in Figure~\ref{fig:ethanediol_fcls}, regions with anticyclonic and cyclonic eddies in Figure~\ref{fig:rse_fcls}, and the interaction of flow patterns in the mantel data set in Figure~\ref{fig:mantel_fcls}.
 %
 Importantly, for the traits selected, the secondary structures produced using $FCLS_{T,C}$ did not overlap one another.

@@ -1,9 +1,20 @@
-\begin{figure*}[!t]
+\begin{figure}[!b]
 \centering
-\includegraphics[width=\linewidth]{Images/example.pdf}
-\vspace{-5mm}
-\caption{A notional example showing the steps involved in generating feature level-sets $FLS_{T}$ \fix{(top row)} and feature confidence level-set $FCLS_{T,C}$ \fix{(bottom row)} for an uncertain univariate field represented using $mean$~(a) and $SD$~(f). For this example, we use trait $T=[2.5, 3.5]$ and confidence $C=68\%$, i.e., $Z=1$. \fix{The next two sentences could be removed for brevity if we state "top row" and "bottom row" in the first sentence. Your call.} The top row~(b-e) shows the steps to compute $FLS_{T}$. The bottom row~(g-j) shows the steps to compute $FCLS_{T}$. $ZLS_{T}$ represents the ``zero'' level-set extracted using $distance_{T}$.}
-% In comparison to using $FLS_{T}$, for uncertain multivariate data, by leveraging the information pertaining to field distribution ($mean$, $SD$), $FCLS_{T,C}$ can provide a confidence controlled visualization of uncertain regions and improve secondary structure visualization for a specific trait.}
-\vspace{-2mm}
+\includegraphics[width=\linewidth, trim={1cm 0cm 0.5cm 0cm}, clip]{Images/example_narrow.pdf}
+%\vspace{-5mm}
+\caption{A notional example showing the steps involved in generating the ``zero'' feature level-set $ZLS_{T}$~(top row) and feature confidence level-set $FCLS_{T,C}$~(bottom row) for an uncertain univariate field represented using $mean$~(a) and $SD$~(e). 
+%
+For this example, we use trait $T=[2.5, 3.5]$ and confidence $C=68\%$, i.e., $Z=1$.
+%
+Assuming a unit distance between adjacent grid points,
+%
+$bvolume_{T,C}$~(g) and $distance_{T,C}$ (not shown) would be equivalent for this example.
+}
+%\vspace{-2mm}
 \label{fig:example}
-\end{figure*}
+\end{figure}
+
+% \fix{The next two sentences could be removed for brevity if we state "top row" and "bottom row" in the first sentence. Your call.} The top row~(b-e) shows the steps to compute $FLS_{T}$. The bottom row~(g-j) shows the steps to compute $FCLS_{T}$. 
+%$ZLS_{T}$ represents the ``zero'' level-set extracted using $distance_{T}$.}
+% In comparison to using $FLS_{T}$, for uncertain multivariate data, by leveraging the information pertaining to field distribution ($mean$, $SD$), $FCLS_{T,C}$ can provide a confidence controlled visualization of uncertain regions and improve secondary structure visualization for a specific trait.}
+

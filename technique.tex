@@ -1,20 +1,18 @@
 %\setlength{\belowdisplayskip}{3pt} \setlength{\belowdisplayshortskip}{3pt}
 %\setlength{\abovedisplayskip}{3pt} \setlength{\abovedisplayshortskip}{3pt}
 
-\input{example.tex}
-
-We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, generation of feature level-sets, and finally, generation of feature confidence level-sets.
+We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, choice of distance metric, generation of feature level-sets, and finally, generation of feature confidence level-sets.
 
 \vspace{-2mm}
 \subsection{Uncertain Multivariate Data}
 %
-From~\cite{jankowai2020feature}, general multivariate data is a set of fields
+From~\cite{jankowai2020feature}, general multivariate data are a set of fields
 \begin{equation}
 \left\{F_{1},F_{2},...,F_{r}\right\}, r\in\mathbb{N}, F_{i}:D_{i} \to R_{i},
 \end{equation}
-where $D_{i} = D \subset \mathbb{R}^{3}$ for all $i$ and $R_{i}$ may be sets of scalar, vectors or tensors.
+where $D_{i} = D \subset \mathbb{R}^{3}$ for all $i$ and $R_{i}$ may be sets of scalar, vectors or tensors, and $r\geq2$.
 %
-\textit{Attribute space} $\mathcal{A}$ is the combination of the field values and can further include derived quantities.
+Attribute space $\mathcal{A}$ is the combination of the field values and can further include derived quantities.
 %
 The dimensionality of $\mathcal{A}$ is the combined dimensionality of all selected field values or derived quantities.
 %
@@ -34,22 +32,38 @@ For uncertainty in each dimension $i$ of attribute space, we assumed the normal 
 \subsection{Trait Specification}
 Traits can be defined generally as artibrary geometries in attribute space $\mathcal{A}$ whose equivalent counterparts in the spatial domain $D$ are identified as features, i.e., $T\subset\mathcal{A}$.
 %
-A trait can be of any dimension and structure including points, intervals, lines and volumes.
+A trait can be of any dimension and structure, including points, intervals, lines, and volumes.
 %
-The specification of complex traits in a high-dimensional attribute space is a non-trivial task.
+%The specification of complex traits in a high-dimensional attribute space is a non-trivial task.
 %
 For simplicity, we assume a limited definition of a trait $T$ by considering intervals for each dimension $i$ of attribute space $\mathcal{A}$.
 %
 \begin{equation}	
 T = \forall{i}\;[L_{i}, U_{i}], \;\;L_{i} \leqslant U_{i}, 
 \end{equation}
-where $L_{i}$ is the lower bound and $U_{i}$ is the upper bound of the interval for each dimension.
+where $L_{i}$ is the lower bound, and $U_{i}$ is the upper bound of the interval for each dimension.
 %
-As an example, in a visualization of $\mathcal{A}$ for $n = 2$ using a scatter plot, a trait by our definition would be a rectangular selection.
+As an example, in a visualization of $\mathcal{A}$ for $n = 2$ using a scatterplot, a trait by our definition would be a rectangular selection.
+
+\vspace{-2mm}
+\subsection{Distance Metric}
+%
+%We assume a non-empty feature for our selection of trait $T$.
+
+In our approach, the final level-set renderings of feature and feature confidence level-sets are extracted from separate distance fields.
+%
+Further, our objective is to visualize the feature and feature confidence level-sets via the corresponding zero level-sets~(see Sections~\ref{sec:fls} and~\ref{sec:fcls}, respectively). 
+%
+To achieve this, we computed multiple distance fields using the Euclidean distance transformation~(EDT) algorithm by Saito et al.~\cite{saito1994new} in the spatial domain directly.
+%
+In ~\cite{jankowai2020feature}, the distance field is computed in attribute space to address empty features.
+%
+In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field. \fix{TODO:verify with test.}
 
 \vspace{-2mm}
 \subsection{Feature Level-Sets}
-In general, a feature is defined as the pre-image of the trait $T$ in spatial domain
+\label{sec:fls}
+In general, a feature is defined as the pre-image of the trait $T$ in the spatial domain
 \begin{equation}
 f^{-1}(T) = \left\{ x \in D |\; f(x) \in T \right\}
 \end{equation}
@@ -70,34 +84,39 @@ First, for trait $T$, we computed a binary volume $bvolume_{T}$ to represent the
   \end{aligned} \right.
 \end{equation}
 %
-Second, we performed a Euclidean distance transformation (EDT) using $bvolume_{T}$ as input to produce a distance field $distance_{T}$. 
+Second, we performed EDT using $bvolume_{T}$ as input to produce a distance field $distance_{T}$. 
 %
-We used an algorithm proposed by Saito \textit{et al.}~\cite{saito1994new} to perform EDT.
+%We used an algorithm proposed by Saito \textit{et al.}~\cite{saito1994new} to perform EDT.
 %
-As a final step, we can compute feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field \fix{(derived for trait T.)}
+As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field.
 %
 \begin{equation} 
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
 \end{equation}
 
 For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T,\epsilon}$ as $ZLS_{T}$.
-\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
+%\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
 %
-As the value of $K$ increases, we believe \fix{(instead of saying "we believe", should we refer to ~\cite{jankowai2020feature}, as we did in the Introduction last paragraph?)} its relevance reduces given discernibility concerns and greater distance from the feature in the spatial domain.
+%As the value of $K$ increases, we believe \fix{(instead of saying "we believe", should we refer to ~\cite{jankowai2020feature}, as we did in the Introduction last paragraph?)} its relevance reduces given discernibility concerns and greater distance from the feature in the spatial domain.
 %
+
+\input{example.tex}
 
 \vspace{-2mm}
 \subsection{Feature Confidence Level-Sets}
+\label{sec:fcls}
+\input{tangle.tex}
+%
 Uncertainty in multivariate data can result in different shapes of $ZLS_{T}$.
 %
-To assess the uncertainty, we visualize within which envelope the $ZLS_{T}$ will lie with a certain confidence $C$.
+To assess the uncertainty, we visualized within which envelope the $ZLS_{T}$ will lie for a certain confidence interval $C$.
 %
-Similar to the steps we used to compute $FLS_{T}$, to extract feature confidence level-sets $FCLS_{T,C}$, we first need to identify all the grid points that satisfy the trait $T$ for confidence $C$.
+Similar to the steps we used to compute $FLS_{T}$, to extract feature confidence level-sets $FCLS_{T,C}$, we first identified all the grid points that satisfy the trait $T$ for confidence interval percentage $C$.
 %
 To achieve this, we used the method by Zehner et al.~\cite{zehner2010visualization}. 
 %
 We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence $C$ and then for each dimension $i$ calculate $bounds_{i,C}$
-\fix{(should we replace variable C with variable Z, e.g.,  $bounds_{i,Z}(x)$ and so on, everywhere below? Only a suggestion for improving readability.)}
+%\fix{(should we replace variable C with variable Z, e.g.,  $bounds_{i,Z}(x)$ and so on, everywhere below? Only a suggestion for improving readability.)}
 \begin{equation}
 bound_{i,lower}(x) = mean_{i}(x) - Z*SD_{i}(x),
 \end{equation}
@@ -118,14 +137,15 @@ Using $bounds_{i,C}$ and $T$, we can then compute $bvolume_{T,C}$.
   \end{aligned} \right.
 \end{equation}
 %
-Following the extraction of $bvolume_{T,C}$, we perform a EDT to compute $distance_{T,C}$.
+Following the extraction of $bvolume_{T,C}$, we performed EDT to compute $distance_{T,C}$.
 %
-Finally, we can extract the feature confidence level-set $FCLS_{T,C,K}$ as the level-set of level $K$ of the distance field
+Finally, we extract the feature confidence level-set $FCLS_{T,C,K}$ as the level-set of level $K$ of the distance field
 %
 \begin{equation} 
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
 %
-In our study, we are only interested in a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
+In our study, we are interested in visualizing only a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and, thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
 %
-Figure~\ref{fig:example} provides a notional example showing the different steps to generate $FLS_{T}$ and $FCLS_{T,C}$ \fix{(Keep only $FCLS_{T,C}$ here if you mention about $FLS_{T}$ in the last paragraph of Sec. 3.3)}.
+Figure~\ref{fig:example} provides a notional example showing the different steps to generate $ZLS_{T}$ and $FCLS_{T,C}$.
+%
