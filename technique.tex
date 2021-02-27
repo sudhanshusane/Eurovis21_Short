@@ -23,7 +23,7 @@ f : D \to \mathcal{A} \subset R^{n},
 %
 where $n$ is the number of dimensions used to form attribute space. 
 %
-For our study, we used a maximum of $n = 2$. 
+For our study, we used a maximum of $n = 3$. 
 %
 
 For uncertainty in each dimension $i$ of attribute space, we assumed the normal distribution of values at each grid point in $D$ and represented it using $mean_{i}$ and $SD_{i}$. 
@@ -58,7 +58,7 @@ To achieve this, we computed multiple distance fields using the Euclidean distan
 %
 In ~\cite{jankowai2020feature}, the distance field is computed in attribute space to address empty features.
 %
-In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field. \fix{TODO:verify with test.}
+In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field. 
 
 \vspace{-2mm}
 \subsection{Feature Level-Sets}
@@ -106,6 +106,7 @@ For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T
 \subsection{Feature Confidence Level-Sets}
 \label{sec:fcls}
 \input{tangle.tex}
+\input{tornado.tex}
 %
 Uncertainty in multivariate data can result in different shapes of $ZLS_{T}$.
 %
@@ -145,7 +146,7 @@ Finally, we extract the feature confidence level-set $FCLS_{T,C,K}$ as the level
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
 %
-In our study, we are interested in visualizing only a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and, thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
+For our study, we are interested in visualizing only a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, and, thus, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$.
 %
 Figure~\ref{fig:example} provides a notional example showing the different steps to generate $ZLS_{T}$ and $FCLS_{T,C}$.
 %
