@@ -3,7 +3,7 @@
 
 We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, choice of distance metric, generation of feature level-sets, and finally, generation of feature confidence level-sets.
 
-\vspace{-2mm}
+\vspace{-1mm}
 \subsection{Uncertain Multivariate Data}
 %
 From~\cite{jankowai2020feature}, general multivariate data are a set of fields
@@ -23,7 +23,7 @@ f : D \to \mathcal{A} \subset R^{n},
 %
 where $n$ is the number of dimensions used to form attribute space. 
 %
-For our study, we used a maximum of $n = 3$. 
+%For our study, we used a maximum of $n = 3$. 
 %
 
 For uncertainty in each dimension $i$ of attribute space, we assumed the normal distribution of values at each grid point in $D$ and represented it using $mean_{i}$ and $SD_{i}$. 
@@ -45,22 +45,26 @@ where $L_{i}$ is the lower bound, and $U_{i}$ is the upper bound of the interval
 %
 As an example, in a visualization of $\mathcal{A}$ for $n = 2$ using a scatterplot, a trait by our definition would be a rectangular selection.
 
-\vspace{-2mm}
+\vspace{-1mm}
 \subsection{Distance Metric}
 %
 %We assume a non-empty feature for our selection of trait $T$.
 
-In our approach, the final level-set renderings of feature and feature confidence level-sets are extracted from separate distance fields.
+In our approach, the final level-set renderings of feature and feature confidence level-sets are extracted from distance fields.
 %
 Further, our objective is to visualize the feature and feature confidence level-sets via the corresponding zero level-sets~(see Sections~\ref{sec:fls} and~\ref{sec:fcls}, respectively). 
 %
-To achieve this, we computed multiple distance fields using the Euclidean distance transformation~(EDT) algorithm by Saito et al.~\cite{saito1994new} in the spatial domain directly.
+To achieve this, we computed distance fields using the Euclidean distance transformation~(EDT) algorithm by Saito et al.~\cite{saito1994new} in the spatial domain directly.
 %
 In ~\cite{jankowai2020feature}, the distance field is computed in attribute space to address empty features.
 %
-In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field. 
+In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field.
+%
+Further, similar to feature level-sets, the concept of feature confidence level-sets can be defined using various distance metrics.  
+%
+%Further, the choice of distance metric does not impact the concept of feature confidence level-sets technique itself.
 
-\vspace{-2mm}
+\vspace{-1mm}
 \subsection{Feature Level-Sets}
 \label{sec:fls}
 In general, a feature is defined as the pre-image of the trait $T$ in the spatial domain
@@ -102,7 +106,7 @@ For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T
 
 \input{example.tex}
 
-\vspace{-2mm}
+\vspace{-1mm}
 \subsection{Feature Confidence Level-Sets}
 \label{sec:fcls}
 \input{tangle.tex}
@@ -112,11 +116,11 @@ Uncertainty in multivariate data can result in different shapes of $ZLS_{T}$.
 %
 To assess the uncertainty, we visualized within which envelope the $ZLS_{T}$ will lie for a certain confidence interval $C$.
 %
-Similar to the steps we used to compute $FLS_{T}$, to extract feature confidence level-sets $FCLS_{T,C}$, we first identified all the grid points that satisfy the trait $T$ for confidence interval percentage $C$.
+Similar to the steps we used to compute $ZLS_{T}$, to extract feature confidence level-sets $FCLS_{T,C}$, we first identified all the grid points that satisfy the trait $T$ for confidence interval percentage $C$.
 %
 To achieve this, we used the method by Zehner et al.~\cite{zehner2010visualization}. 
 %
-We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence $C$ and then for each dimension $i$ calculate $bounds_{i,C}$
+We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence $C$, and then, for each dimension $i$, calculated $bounds_{i,C}$
 %\fix{(should we replace variable C with variable Z, e.g.,  $bounds_{i,Z}(x)$ and so on, everywhere below? Only a suggestion for improving readability.)}
 \begin{equation}
 bound_{i,lower}(x) = mean_{i}(x) - Z*SD_{i}(x),
@@ -129,7 +133,7 @@ bounds_{i,C}(x) = \forall i \; [bound_{i, lower}(x), bound_{i,upper}(x)]
 %bounds_{i,C}(x) = \forall i \; [mean_{i}(x) - Z*SD_{i}(x), mean_{i}(x) + Z*SD_{i}(x)]
 \end{equation}
 %
-Using $bounds_{i,C}$ and $T$, we can then compute $bvolume_{T,C}$.
+Using $bounds_{i,C}$ and $T$, we computed $bvolume_{T,C}$
 \begin{equation}
   bvolume_{T,C}(x) = \left \{
   \begin{aligned}
@@ -140,7 +144,7 @@ Using $bounds_{i,C}$ and $T$, we can then compute $bvolume_{T,C}$.
 %
 Following the extraction of $bvolume_{T,C}$, we performed EDT to compute $distance_{T,C}$.
 %
-Finally, we extract the feature confidence level-set $FCLS_{T,C,K}$ as the level-set of level $K$ of the distance field
+Finally, we extracted the feature confidence level-set $FCLS_{T,C,K}$ as the level-set of level $K$ of the distance field
 %
 \begin{equation} 
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}

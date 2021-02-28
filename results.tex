@@ -12,35 +12,38 @@ We defined between one to three traits per data set based on features of interes
 %While our study demonstrated feature confidence level-sets for univariate and bivariate data, the approach can be applied to higher dimensions.\fix{Can we get an example in for a third?***}
 %\fix{(Should we remove the part "the approach can be applied to higher dimensions" since we do not have results for n>2, but we can state the same in the future work section?)}.
 %
-For this study, each attribute was represented using a $mean$ and $SD$ field. 
+In this study, each attribute was represented using a $mean$ and $SD$ field. 
 %
-For the RSGOA ensemble dataset, we computed $mean$ and $SD$ fields from ensemble members. 
+For the RSGOA data set, we computed $mean$ and $SD$ fields from using 20 ensemble members. 
 %
-For every other data set with single scalar fields, we synthetically estimated $SD$ at each grid point by sampling the local neighborhood.
+For other data sets, we synthetically estimated $SD$ for each scalar field of the multivariate data at each grid point by sampling the local neighborhood.
 %
-For each data set, we visualize the $ZLS_{T}$ both in isolation and augmented with $FCLS_{T,C}$. 
+To evaluate our technique, we visualized the $ZLS_{T}$ both in isolation and augmented with $FCLS_{T,C}$. 
 %
 When visualized together, the $ZLS_{T}$ is shown using an opaque isosurface, and the $FCLS_{T,C}$ is shown using an isosurface colored with the same hue and 25\% opacity.
+%
+We used VisIt~\cite{childs2012visit} in our pipeline to render level-sets.
 
 %also augment it with a semi-opaque, single feature level-set $FLS_{T,K}$ for some level $K$, or a feature confidence level-set $FCLS_{T,C}$ for some confidence $C$ (and level $\epsilon$).
 %
 
-For all data sets considered, as expected we found $FLS_{T,K}$ has the shortcoming of discernibility.
+%For all data sets considered, as expected we found $FLS_{T,K}$ has the shortcoming of discernibility.
 %
-The $FLS_{T,K}$ level-set typically formed a ``shell'' like structure.
+%The $FLS_{T,K}$ level-set typically formed a ``shell'' like structure.
 %
-In contrast, the shape of the $FCLS_{T,C}$ level-set corresponded to the uncertainty of the data in the spatial domain.
+Across all data sets, the shape of $FCLS_{T,C}$ corresponded to the uncertainty of the data in the spatial domain.
 %
-For example, for the tangle function where uncertainty is higher near the links between the blobs, comparing Figures~\ref{fig:tangle_fcls_68} and~\ref{fig:tangle_fcls_95} we found the $FCLS_{T,C}$ envelope expanded between the links in response to increasing the value of $C$, but not significantly on the exterior of the blob itself.
-
-In comparison to $FLS_{T,K}$, for uncertain multivariate data, by leveraging the information pertaining to field distribution~($mean$, $SD$), $FCLS_{T,C}$ provided improved secondary structure visualization.
+For example, for the analytical tangle function where uncertainty is higher near the links between the blobs for the trait specified, we found comparing Figures~\ref{fig:tangle_fcls_68} and~\ref{fig:tangle_fcls_95} the $FCLS_{T,C}$ envelope expanded between the links in response to increasing the value of $C$, but not significantly on the exterior of the blob surface.
+%
+By leveraging the information pertaining to field distribution~($mean$, $SD$), $FCLS_{T,C}$ provided secondary structure visualization based on uncertainty.
 %
 %\fix{(Should we add boxes/zoomed-in views to the examples below to illustrate improvements achieved using our  $FCLS_{T,C}$? For example, we may show boxes where molecular topology is discovered nicely or one link and one blob in the case of the tangle function. This will enhance the interpretability of results.)}
-For example, we observed additional weaker tornado vortices in Figure~\ref{fig:tornado_fcls}, improved molecular structure information for the ethanediol covalent and non-covalent bonds in Figure~\ref{fig:ethanediol_fcls}, regions with anticyclonic and cyclonic eddies in Figure~\ref{fig:rse_fcls}, and the interaction of flow patterns in the mantel data set in Figure~\ref{fig:mantel_fcls}.
 %
-Importantly, for the traits selected, the secondary structures produced using $FCLS_{T,C}$ did not overlap one another.
+For example, we observed the structure of weaker tornado vortices~(Figure~\ref{fig:tornado}), topological structure information for the ethanediol molecule~(Figure~\ref{fig:ethanediol}), regions with anticyclonic and cyclonic eddies across ensemble members~(Figure~\ref{fig:rse}), and the proximity as well as relationship of contrasting features in the spatial domain for the mantel data set~(Figure~\ref{fig:mantel_fcls_68_v2}).
 %
-In contrast, for the same traits, $FLS_{T,K}$ resulted in overlapping and occluding level-sets~(see Figure~\ref{fig:rse_fls}).
+%Importantly, for the traits selected, the secondary structures produced using $FCLS_{T,C}$ did not overlap one another.
 %
-We provide supplementary visualizations and comparisons in the additional material. 
+%In contrast, for the same traits, $FLS_{T,K}$ resulted in overlapping and occluding level-sets~(see Figure~\ref{fig:rse_fls}).
+%
+%We provide supplementary visualizations and comparisons in the additional material. 
  
