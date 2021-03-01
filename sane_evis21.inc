@@ -9,8 +9,8 @@
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
 % for final version: please provide your *own* ORCID in the brackets following \orcid; see https://orcid.org/ for more details.
-\author[SUBMISSION ID:]
-{SUBMISSION ID:}
+\author[SUBMISSION ID: 1037]
+{SUBMISSION ID: 1037}
 
 %\author[D. Fellner \& S. Behnke]
 %{\parbox{\textwidth}{\centering D.\,W. Fellner\thanks{Chairman Eurographics Publications Board}$^{1,2}$\orcid{0000-0001-7756-0901}
