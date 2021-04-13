@@ -70,8 +70,6 @@ In ~\cite{jankowai2020feature}, the distance field is computed in attribute spac
 %
 In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field.
 %
-Further, similar to feature level-sets, the concept of feature confidence level-sets can be defined using various distance metrics.  
-%
 
 \vspace{-1mm}
 \subsection{Feature Level-Sets}
@@ -107,6 +105,8 @@ As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of l
 \begin{equation} 
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
 \end{equation}
+%
+$K$ is the spatial distance from $\forall i\; \mu_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.
 %
 For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T,\epsilon}$ as $ZLS_{T}$~(Figure~\ref{fig:zlsT}).
 %\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
@@ -160,6 +160,7 @@ Finally, we extracted the feature confidence level-set $FCLS_{T,C,K}$ as the lev
 \begin{equation} 
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
+Here, $K$ is the spatial distance from $\forall i\; bounds_{i,C}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.
 %
 Given our objective of visualizing a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$~(Figure~\ref{fig:fclsTC}).
 %

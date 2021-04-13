@@ -27,24 +27,12 @@ We propose \textit{feature confidence level-sets}, the generalization of confide
 %
 To extract the zero level-set and the corresponding feature confidence level-sets, our approach utilizes distance fields computed in the spatial domain directly.
 %
-Our choice of distance metric enables selection of level-sets close to the feature guided by domain information~(extents and grid resolution).
+Our choice of distance metric enables the selection of level-sets close to the feature guided by domain information~(extents and grid resolution).
 %
 While feature level-sets compute a distance field based on the distribution of a function in the domain, feature confidence level-sets additionally consider the uncertainty of the function, represented as a distribution at each grid point, in the domain.
-%To compute a distance field irrespective of the metric, besides the distribution of a function in the domain as in feature level-sets, feature confidence level-sets consider the uncertainty, encoded as a distribution, at each grid point. 
 %
-%\fix{(I would suggest swapping the order of the first and second motivations. This is because the paragraph under second point really is a strong technical motivation. In the end, we may say our second motivation is that this area is unexplored to our best knowledge. One option is removing the sentence "our motivation is twofold", and in the end stating that the uncertainty vis of feature level-sets is unexplored area to the best of our knowledge.)}.
+Since feature confidence level-sets are based on feature level-sets, they can be defined using various distance metrics.  
 %
-%presents the first uncertain multivariate spatial data visualization technique. 
-%
-%First, compared to feature level-sets alone, feature confidence level-sets could offer improved secondary feature structure visualization for uncertain multivariate data.
-%
-%In particular, Jankowai and Hotz have identified that a shortcoming of computing multiple feature level-sets using a single Euclidean distance is discernibility: points with equal distance to the feature cannot be distinguished in the final level-set rendering.
-%%
-%Further, we conjecture that as the Euclidean distance from the feature increases, the effectiveness and relevance of additional feature level-sets reduces for many applications.
-%%
-%In our approach, we compute distance fields based on the trait definition and additional fields based on the trait definition as well as a confidence percentage, and render level-sets extracted from these fields.
-%%
-%Rather than render multiple level-sets using $distance_{T}$, we only render $ZLS_{T}$ augmented with a feature confidence level-set, i.e., $FCLS_{T,C}$.
 %
 Further, to the best of our knowledge, we believe this work is the first to propose an uncertainty visualization technique for multivariate data based on feature level-sets. 
 %
