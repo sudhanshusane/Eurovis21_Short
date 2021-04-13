@@ -1,63 +1,63 @@
-\begin{figure*}[!t]
+\begin{figure}[!t]
 \centering
-\begin{subfigure}{0.18\linewidth}
-\includegraphics[width=\linewidth]{Images/mean.pdf}
-\caption{$mean$}
-\label{}
+\begin{subfigure}{0.243\linewidth}
+\includegraphics[width=\linewidth]{Images/mu.pdf}
+\vspace{-5mm}
+\caption{${\mu}$}
+\label{fig:mu}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/bvolumeT.pdf}
+\vspace{-5mm}
 \caption{$bvolume_{T}$}
-\label{}
+\label{fig:bvolumeT}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/distanceT.pdf}
+\vspace{-5mm}
 \caption{$distance_{T}$}
-\label{}
+\label{fig:distanceT}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/zlsT.pdf}
+\vspace{-5mm}
 \caption{$ZLS_{T}$}
-\label{}
+\label{fig:zlsT}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
-\includegraphics[width=\linewidth]{Images/zlsT_flsT.pdf}
-\caption{$ZLS_{T}$ + $FLS_{T,1}$}
-\label{}
+\begin{subfigure}{0.243\linewidth}
+\includegraphics[width=\linewidth]{Images/sigma.pdf}
+\vspace{-5mm}
+\caption{${\sigma}$}
+\label{fig:sigma}
 \end{subfigure}
-\begin{subfigure}{0.18\linewidth}
-\includegraphics[width=\linewidth]{Images/sd.pdf}
-\caption{$SD$}
-\label{}
-\end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/boundsC.pdf}
+\vspace{-5mm}
 \caption{$bounds_{C}$}
-\label{}
+\label{fig:boundsC}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/bvolumeTC.pdf}
+\vspace{-5mm}
 \caption{$bvolume_{T,C}$}
-\label{}
+\label{fig:bvolumeTC}
 \end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
-\includegraphics[width=\linewidth]{Images/distanceTC.pdf}
-\caption{$distance_{T,C}$}
-\label{}
-\end{subfigure}
-\hspace{2mm}
-\begin{subfigure}{0.18\linewidth}
+\begin{subfigure}{0.243\linewidth}
 \includegraphics[width=\linewidth]{Images/zlsT_fclsTC.pdf}
-\caption{$ZLS_{T}$ + $FCLS_{T,C}$}
-\label{}
+\vspace{-5mm}
+\caption{{\scriptsize $ZLS_{T}$+$FCLS_{T,C}$}}
+\label{fig:fclsTC}
 \end{subfigure}
-\caption{Notional example}
-\label{fig:example_sub}
-\end{figure*}
+\caption{A notional example showing the steps involved in generating the ``zero'' feature level-set $ZLS_{T}$~(top row) and feature confidence level-set $FCLS_{T,C}$~(bottom row) for an uncertain univariate field represented using ${\mu}$~(a) and ${\sigma}$~(e).
+%
+For this example, we use trait $T=[2.5, 3.5]$ and confidence $C=68\%$, i.e., $Z=1$.
+%
+$FCLS_{T,C}$ is computed using the $distance_{T,C}$ (not shown) field.
+%
+Assuming a unit distance between adjacent grid points,
+%
+$distance_{T,C}$ would be computed using $bvolume_{T,C}$~(g) as input and would appear equivalent for this example.
+%$bvolume_{T,C}$~(g) and $distance_{T,C}$ (not shown) would appear equivalent for this example.
+}
+\label{fig:example}
+\end{figure}

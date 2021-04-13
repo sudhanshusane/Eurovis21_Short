@@ -27,6 +27,11 @@ We propose \textit{feature confidence level-sets}, the generalization of confide
 %
 To extract the zero level-set and the corresponding feature confidence level-sets, our approach utilizes distance fields computed in the spatial domain directly.
 %
+Our choice of distance metric enables selection of level-sets close to the feature guided by domain information~(extents and grid resolution).
+%
+While feature level-sets compute a distance field based on the distribution of a function in the domain, feature confidence level-sets additionally consider the uncertainty of the function, represented as a distribution at each grid point, in the domain.
+%To compute a distance field irrespective of the metric, besides the distribution of a function in the domain as in feature level-sets, feature confidence level-sets consider the uncertainty, encoded as a distribution, at each grid point. 
+%
 %\fix{(I would suggest swapping the order of the first and second motivations. This is because the paragraph under second point really is a strong technical motivation. In the end, we may say our second motivation is that this area is unexplored to our best knowledge. One option is removing the sentence "our motivation is twofold", and in the end stating that the uncertainty vis of feature level-sets is unexplored area to the best of our knowledge.)}.
 %
 %presents the first uncertain multivariate spatial data visualization technique. 

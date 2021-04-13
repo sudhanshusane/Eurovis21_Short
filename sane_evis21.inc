@@ -9,8 +9,14 @@
 % for anonymous conference submission please enter your SUBMISSION ID
 % instead of the author's name (and leave the affiliation blank) !!
 % for final version: please provide your *own* ORCID in the brackets following \orcid; see https://orcid.org/ for more details.
-\author[SUBMISSION ID: 1037]
-{SUBMISSION ID: 1037}
+\author[S. Sane et al.]
+{\parbox{\textwidth}{\centering Sudhanshu Sane$^{1}$, Tushar Athawale$^{1}$, and Chris R. Johnson$^{1}$
+}
+\\
+{\parbox{\textwidth}{\centering $^{1}$SCI Institute at University of Utah, USA\\
+}
+}
+}
 
 %\author[D. Fellner \& S. Behnke]
 %{\parbox{\textwidth}{\centering D.\,W. Fellner\thanks{Chairman Eurographics Publications Board}$^{1,2}$\orcid{0000-0001-7756-0901}
