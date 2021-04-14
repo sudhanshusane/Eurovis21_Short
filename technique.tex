@@ -1,12 +1,12 @@
-\setlength{\belowdisplayskip}{5pt} \setlength{\belowdisplayshortskip}{5pt}
-\setlength{\abovedisplayskip}{5pt} \setlength{\abovedisplayshortskip}{5pt}
+\setlength{\belowdisplayskip}{4pt} \setlength{\belowdisplayshortskip}{4pt}
+\setlength{\abovedisplayskip}{4pt} \setlength{\abovedisplayshortskip}{4pt}
 
 We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, choice of distance metric, generation of feature level-sets, and finally, generation of feature confidence level-sets.
 %
 Finally, Figure~\ref{fig:example} provides a notional example of the different steps involved to generate the level-sets and is referenced in Sections~\ref{sec:fls} and~\ref{sec:fcls}.
 %
 
-\vspace{-1mm}
+\vspace{-2mm}
 \subsection{Uncertain Multivariate Data}
 %
 \fix{From~\cite{jankowai2020feature}, general multivariate data are a set of scalar, vector, or tensor fields $\{F_1,F_2,...,F_r\}$ in the domain $D \subset \mathbb{R}^{3}$, where $r\in\mathbb{N}$ and $r\geq2$.}
@@ -31,7 +31,6 @@ where $n$ is the number of dimensions used to form attribute space.
 %
 %For our study, we used a maximum of $n = 3$. 
 %
-
 For uncertainty in each dimension $i$ of attribute space, we assumed the normal distribution of values at each grid point in $D$ and represented it using mean ${\mu}_{i}$ and standard deviation ${\sigma}_{i}$. 
 
 \vspace{-2mm}
@@ -51,7 +50,7 @@ where $L_{i}$ is the lower bound, and $U_{i}$ is the upper bound of the interval
 %
 As an example, in a visualization of $\mathcal{A}$ for $n = 2$ using a scatterplot, a trait by our definition would be a rectangular selection.
 
-\vspace{-1mm}
+\vspace{-2mm}
 \subsection{Distance Metric}
 %
 %We assume a non-empty feature for our selection of trait $T$.
@@ -70,8 +69,9 @@ In ~\cite{jankowai2020feature}, the distance field is computed in attribute spac
 %
 In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field.
 %
+\input{example_sub.tex}
 
-\vspace{-1mm}
+\vspace{-2mm}
 \subsection{Feature Level-Sets}
 \label{sec:fls}
 In general, a feature is defined as the pre-image of the trait $T$ in the spatial domain
@@ -83,6 +83,10 @@ For our limited definition of a trait $T$ and ${\mu}_{i}$ field of each dimensio
 \begin{equation}
 f^{-1}(T) = \left\{ x \in D |\; \forall i\;{\mu}_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset\right\}
 \end{equation}
+
+\input{tangle.tex}
+\input{tornado.tex}
+
 
 To visualize the feature and its secondary structures, we performed three steps:
 %
@@ -106,7 +110,7 @@ As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of l
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
 \end{equation}
 %
-\fix{$K$ is the spatial distance from $\forall i\; \mu_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
+\fix{Here, the distance at each grid point is the spatial distance from $\forall i\; \mu_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
 %
 For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T,\epsilon}$ as $ZLS_{T}$~(Figure~\ref{fig:zlsT}).
 %\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
@@ -114,11 +118,7 @@ For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T
 %As the value of $K$ increases, we believe \fix{(instead of saying "we believe", should we refer to ~\cite{jankowai2020feature}, as we did in the Introduction last paragraph?)} its relevance reduces given discernibility concerns and greater distance from the feature in the spatial domain.
 %
 
-\input{example_sub.tex}
-\input{tangle.tex}
-\input{tornado.tex}
-
-\vspace{-1mm}
+\vspace{-2mm}
 \subsection{Feature Confidence Level-Sets}
 \label{sec:fcls}
 %
@@ -160,7 +160,7 @@ Finally, we extracted the feature confidence level-set $FCLS_{T,C,K}$ as the lev
 \begin{equation} 
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
-\fix{Here, $K$ is the spatial distance from $\forall i\; bounds_{i,C}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
+\fix{Here, the distance at each grid point is the spatial distance from $\forall i\; bounds_{i,C}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
 %
 Given our objective of visualizing a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$~(Figure~\ref{fig:fclsTC}).
 %

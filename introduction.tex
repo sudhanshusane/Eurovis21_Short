@@ -17,7 +17,8 @@ In many cases, this feature is visualized using a small threshold distance to hi
 %Additional level-sets for larger distances show secondary feature structures. 
 %
 
-In this paper, we extend the existing approach of using \textit{confidence isosurfaces} to visualize uncertainty for univariate data~\cite{zehner2010visualization} to multivariate data via feature level-sets.
+In this paper, we extend an existing approach to visualize uncertainty of univariate data via \textit{confidence isosurfaces}~\cite{zehner2010visualization} to multivariate data via feature level-sets.
+%In this paper, we extend the existing approach of using \textit{confidence isosurfaces} to visualize uncertainty for univariate data~\cite{zehner2010visualization} to multivariate data via feature level-sets.
 %
 Specifically, we are interested in visualizing the uncertainty of the zero level-set.
 %
@@ -25,14 +26,16 @@ We propose \textit{feature confidence level-sets}, the generalization of confide
 %
 %Our motivation is twofold.
 %
+\fix{While feature level-sets compute a distance field based on the distribution of a function in the domain, feature confidence level-sets additionally consider the uncertainty of the function, represented in our study as a distribution at each grid point, in the domain.
+%
+Similar to feature level-sets, feature confidence level-sets can be defined using various distance metrics.}
+%Since feature confidence level-sets are based on feature level-sets, they can be defined using various distance metrics.}
+%
 To extract the zero level-set and the corresponding feature confidence level-sets, our approach utilizes distance fields computed in the spatial domain directly.
 %
-\fix{Our choice of distance metric enables the selection of level-sets close to the feature guided by domain information~(extents and grid resolution).
-%
-While feature level-sets compute a distance field based on the distribution of a function in the domain, feature confidence level-sets additionally consider the uncertainty of the function, represented as a distribution at each grid point, in the domain.
-%
-Since feature confidence level-sets are based on feature level-sets, they can be defined using various distance metrics.}
-%
+\fix{This enables the selection of level-sets close to the feature guided by spatial domain information.
+%~(extents and grid resolution).
+}
 %
 Further, to the best of our knowledge, we believe this work is the first to propose an uncertainty visualization technique for multivariate data based on feature level-sets. 
 %
