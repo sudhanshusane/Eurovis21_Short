@@ -10,7 +10,7 @@
 % instead of the author's name (and leave the affiliation blank) !!
 % for final version: please provide your *own* ORCID in the brackets following \orcid; see https://orcid.org/ for more details.
 \author[S. Sane et al.]
-{\parbox{\textwidth}{\centering Sudhanshu Sane$^{1}$, Tushar Athawale$^{1}$, and Chris R. Johnson$^{1}$
+{\parbox{\textwidth}{\centering Sudhanshu Sane$^{1}$, Tushar M. Athawale$^{1}$, and Chris R. Johnson$^{1}$
 }
 \\
 {\parbox{\textwidth}{\centering $^{1}$SCI Institute at University of Utah, USA\\

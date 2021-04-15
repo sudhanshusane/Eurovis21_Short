@@ -9,7 +9,7 @@ Finally, Figure~\ref{fig:example} provides a notional example of the different s
 \vspace{-2mm}
 \subsection{Uncertain Multivariate Data}
 %
-\fix{From~\cite{jankowai2020feature}, general multivariate data are a set of scalar, vector, or tensor fields $\{F_1,F_2,...,F_r\}$ in the domain $D \subset \mathbb{R}^{3}$, where $r\in\mathbb{N}$ and $r\geq2$.}
+From~\cite{jankowai2020feature}, general multivariate data are a set of scalar, vector, or tensor fields $\{F_1,F_2,...,F_r\}$ in the domain $D \subset \mathbb{R}^{3}$, where $r\in\mathbb{N}$ and $r\geq2$.
 %
 %
 %From~\cite{jankowai2020feature}, general multivariate data are a set of fields
@@ -35,7 +35,7 @@ For uncertainty in each dimension $i$ of attribute space, we assumed the normal 
 
 \vspace{-2mm}
 \subsection{Trait Specification}
-Traits can be defined generally as artibrary geometries in attribute space $\mathcal{A}$ whose equivalent counterparts in the spatial domain $D$ are identified as features, i.e., $T\subset\mathcal{A}$.
+Traits can be defined generally as arbitrary geometries in attribute space $\mathcal{A}$ whose equivalent counterparts in the spatial domain $D$ are identified as features, i.e., $T\subset\mathcal{A}$.
 %
 A trait can be of any dimension and structure, including points, intervals, lines, and volumes.
 %
@@ -59,13 +59,13 @@ The feature and feature confidence level-sets are extracted from distance fields
 %
 Our objective is to visualize the feature and feature confidence level-sets via the corresponding zero level-sets~(see Sections~\ref{sec:fls} and~\ref{sec:fcls}, respectively). 
 %
-To achieve this, we computed distance fields using the Euclidean distance transformation~(EDT) algorithm by Saito et al.~\cite{saito1994new} in the spatial domain directly.
+To achieve this, we computed distance fields using the Euclidean distance transformation~(EDT) algorithm by Saito et al.~\cite{saito1994new} in the spatial domain.
 %
-\fix{The field derived from the EDT algorithm is computed for each grid point in the spatial domain and encodes the distance from a feature.
+The field derived from the EDT algorithm is computed for each grid point in the spatial domain and encodes the minimum distance from a feature.
 %
-A distance field computed in the spatial domain allows a domain information-guided selection of small threshold distances, whereas distance fields derived from attribute space can be harder to interpret due to dynamic ranges among attributes.}
+A distance field computed in the spatial domain allows a domain information-guided selection of small threshold distances, whereas distance fields derived from attribute space can be harder to interpret due to dynamic ranges among attributes.
 %
-In ~\cite{jankowai2020feature}, the distance field is computed in attribute space to address empty features.
+In~\cite{jankowai2020feature}, the distance field is computed in attribute space to address empty features.
 %
 In the event that a trait $T$ results in an empty feature, our choice of distance metric would result in a constant distance field.
 %
@@ -110,7 +110,7 @@ As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of l
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
 \end{equation}
 %
-\fix{Here, the distance at each grid point is the spatial distance from $\forall i\; \mu_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
+Here, the distance at each grid point is the minimum spatial distance from $\forall i\; \mu_{i}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.
 %
 For $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FLS_{T,\epsilon}$ as $ZLS_{T}$~(Figure~\ref{fig:zlsT}).
 %\fix{Figure~\ref{fig:example} top row illustrates the different steps to generate $FLS_{T,\epsilon}$ or $ZLS_{T}$.}
@@ -160,7 +160,7 @@ Finally, we extracted the feature confidence level-set $FCLS_{T,C,K}$ as the lev
 \begin{equation} 
 distance_{T,C}^{-1}(K) = \left\{ x \in D\; |\; distance_{T,C}(x) = K\right\}
 \end{equation}
-\fix{Here, the distance at each grid point is the spatial distance from $\forall i\; bounds_{i,C}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.}
+Here, the distance at each grid point is the minimum spatial distance from $\forall i\; bounds_{i,C}(x) \cap [L_{i}, U_{i}] \neq \emptyset$.
 %
 Given our objective of visualizing a single level-set extracted from $distance_{T,C}$ with $K = \epsilon$, i.e., a small threshold value near zero, we refer to $FCLS_{T,C,\epsilon}$ as simply $FCLS_{T,C}$~(Figure~\ref{fig:fclsTC}).
 %

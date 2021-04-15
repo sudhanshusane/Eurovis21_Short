@@ -5,9 +5,9 @@
 %\input{tangle.tex}
 We demonstrated the use of feature confidence level-sets using five data sets.
 %
-Specifically, we considered an analytical tangle function~\cite{knoll2009fast}, an EF-5 Tornado~\cite{atmos10100578}, an ethanediol molecule from a chemistry simulation, Red Sea and Gulf of Aden~(RSGOA) eddy ensemble~\cite{sanikommu2020impact} and Earth's mantel convection~\cite{shahnas2017mid} data (see additional material).
+Specifically, we considered an analytical tangle function~\cite{knoll2009fast}, an EF-5 Tornado~\cite{atmos10100578}, an ethanediol molecule from a chemistry simulation, Red Sea and Gulf of Aden~(RSGOA) eddy ensemble~\cite{sanikommu2020impact}, and Earth's mantel convection~\cite{shahnas2017mid} data (see additional material).
 %
-We defined between one to three traits per data set based on features of interest. 
+We defined between one to four traits per data set based on features of interest. 
 %
 %While our study demonstrated feature confidence level-sets for univariate and bivariate data, the approach can be applied to higher dimensions.\fix{Can we get an example in for a third?***}
 %\fix{(Should we remove the part "the approach can be applied to higher dimensions" since we do not have results for n>2, but we can state the same in the future work section?)}.
@@ -27,54 +27,53 @@ We used VisIt~\cite{childs2012visit} to extract and render smooth level-sets usi
 %also augment it with a semi-opaque, single feature level-set $FLS_{T,K}$ for some level $K$, or a feature confidence level-set $FCLS_{T,C}$ for some confidence $C$ (and level $\epsilon$).
 %
 
-%For all data sets considered, as expected we found $FLS_{T,K}$ has the shortcoming of discernibility.
+%For all data sets considered, as expected we found, $FLS_{T,K}$ has the shortcoming of discernibility.
 %
 %The $FLS_{T,K}$ level-set typically formed a ``shell'' like structure.
 %
 Across all data sets, the shape of $FCLS_{T,C}$ corresponded to the uncertainty of the data in the spatial domain.
 %
-For example, for the analytical tangle function where uncertainty is higher near the links between the blobs for the trait specified, we found comparing Figures~\ref{fig:tangle_fcls_68} and~\ref{fig:tangle_fcls_95}, the $FCLS_{T,C}$ envelope expanded between the links in response to increasing the value of $C$, but not significantly on the exterior of the blob surface.
+For example, for the analytical tangle function where uncertainty is higher near the links between the blobs for the trait specified, we found, comparing Figures~\ref{fig:tangle_fcls_68} and~\ref{fig:tangle_fcls_95}, the $FCLS_{T,C}$ envelope expanded between the links in response to increasing the value of $C$, but not significantly on the exterior of the blob surface.
 %
-
-\fix{For the data from the SciVis 2020 contest Red Sea eddy simulation, we visualized anticyclonic~(red isosurfaces) and cyclonic~(blue isosurfaces) eddies in Figure~\ref{fig:rse}. 
+For the Tornado data set, we specify a trait using three attributes related to vorticity, including negative pressure pertubation~(prespert) values that are associated with the updraft rotational mechanics of an evolving tornado. 
 %
-Using the $\mu$ field to compute feature level-sets for the two specified traits~(Figure~\ref{fig:rse_scatterplot}) reveals regions where large eddies in the Gulf of Aden and eddy tracks in the Red Sea exist, as well as, the type of eddy in Figure~\ref{fig:rse_zls}.
-%
-To investigate the uncertainty of outcomes across ensemble members, the $\mu$ and $\sigma$ fields are utilized to compute feature confidence level-sets for 50\% and 68\% confidence intervals.
-%
-Besides showing larger regions of eddys in the Gulf of Aden, this enables the visualization of additional eddy tracks in the Red Sea, with increased connectivity as the confidence interval widens up to one standard deviation from the mean. 
-%
-Figures~\ref{fig:rse_fls} and~\ref{fig:rse_fcls} is annotated to highlight one such example.
-%
-}
-
-%
-\fix{For the Tornado data set we specify a trait using three attributes related to vorticity, including negative pressure pertubation~(prespert) values that are associated with the updraft rotational mechanics of an evolving tornado. 
-%
-The feature confidence level-sets visualize weaker vortices in the proximity of the primary vortex in Figure~\ref{fig:tornado_fcls}.
+$FCLS_{T,C}$ visualize weaker vortices in proximity to the primary vortex in Figure~\ref{fig:tornado_fcls}.
 %
 Such visualizations could be useful in visualizing vortex merges during the formation of a multiple vortex tornado~\cite{atmos10100578}. 
 %
-In the ethanediol data set, electron density and reduced gradient are related exponentially (main separating axis of the scatterplot in Figure~\ref{fig:ethanediol_scatterplot}) in regions where no chemical interactions occur.
+
+For the Red Sea eddy simulation data, we visualized anticyclonic~(red isosurfaces) and cyclonic~(blue isosurfaces) eddies in Figure~\ref{fig:rse}. 
+%
+Using the $\mu$ field to compute $ZLS_{T}$ for the two specified traits~(Figure~\ref{fig:rse_scatterplot}) reveals regions where large eddies in the Gulf of Aden and eddy tracks in the Red Sea exist, as well as the type of eddy in Figure~\ref{fig:rse_zls}.
+%
+To investigate the uncertainty of outcomes across ensemble members, the $\mu$ and $\sigma$ fields are utilized to compute $FCLS_{T,C}$ for 50\% and 68\% confidence intervals.
+%
+Besides showing larger regions of eddys in the Gulf of Aden, $FCLS_{T,C}$ visualizes the possible existence of additional eddy tracks in the Red Sea across ensemble members for the specific trait selection, which is not seen in the $ZLS_{T}$ derived from the mean fields.
+%, with increased connectivity as the confidence interval widens.
+%
+Figures~\ref{fig:rse_fls} and~\ref{fig:rse_fcls} are annotated to highlight one such example.
+%
+
+%
+In the ethanediol data set, electron density and reduced gradient are related exponentially in regions where no chemical interactions occur~(main separating axis of the scatterplot in Figure~\ref{fig:ethanediol_scatterplot}).
 %
 %In Figure~\ref{fig:ethanediol_scatterplot}, the main separating axis of the scatterplot plot forms this region of no chemical interaction. 
 %
-Our trait selections in attribute space are away from this axis and correspond to regions with significant chemical interactions.
+Our trait selections in attribute space are off this axis and correspond to regions with significant chemical interactions.
 %
 %Figure~\ref{fig:ethanediol_zls} visualizes features extracted using four traits.
 %
-In this case, we observed the feature confidence level-sets of individual traits visualized the boundaries of non-chemical interactivity for each feature. 
+In this case, we found $FCLS_{T,C}$ of individual traits visualized the boundaries of non-chemical interactivity for each feature. 
 %
-Figures~\ref{fig:ethanediol_fcls_cb} and~\ref{fig:ethanediol_fcls_ncb} show feature confidence level-sets for the covalent and non-covalent bond form enclosing structures around the respective features.
+Figures~\ref{fig:ethanediol_fcls_cb} and~\ref{fig:ethanediol_fcls_ncb} show $FCLS_{T,C}$ for the covalent and non-covalent bond form enclosing structures primarily around the respective features.
 %
-Similarly, in Figures~\ref{fig:ethanediol_fcls_oa} and~\ref{fig:ethanediol_fcls_ca}, accounting for the proximity in attribute space, the feature confidence level-sets form structures in regions of influence of atoms.
+Similarly, in Figures~\ref{fig:ethanediol_fcls_oa} and~\ref{fig:ethanediol_fcls_ca}, $FCLS_{T,C}$ of each trait are observed in regions of influence of each atom, conveying the proximity of the traits in attribute space and the uncertainty in the data.
 %
-Figure~\ref{fig:ethanediol_fcls_oa} contains occluded feature confidence level-sets on the inside of each carbon atom~(yellow). 
+Figure~\ref{fig:ethanediol_fcls_oa} contains occluded $FCLS_{T_{C},C}$ on the inside of each carbon atom~(yellow). 
 %For the covalent bond and non-covalent bonds T_{B}$ and $T_{C}$, we found enclosing level-sets, while for $T_{A}$ and $T_{D}$.
 %
 Overall, by leveraging the information pertaining to field distribution~(${\mu}$, ${\sigma}$), $FCLS_{T,C}$ provided secondary structure visualization based on uncertainty.
 %
-}
 %The feature confidence level-sets for each feature
 %, topological structure information for the ethanediol molecule~(Figure~\ref{fig:ethanediol}), regions with anticyclonic and cyclonic eddies across ensemble members~(Figure~\ref{fig:rse}), and the proximity as well as relationship of contrasting features in the spatial domain for the mantel data set~(Figure~\ref{fig:mantel_fcls_68_v2}).
 %
