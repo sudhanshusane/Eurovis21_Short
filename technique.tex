@@ -1,5 +1,5 @@
-\setlength{\belowdisplayskip}{4pt} \setlength{\belowdisplayshortskip}{4pt}
-\setlength{\abovedisplayskip}{4pt} \setlength{\abovedisplayshortskip}{4pt}
+\setlength{\belowdisplayskip}{5pt} \setlength{\belowdisplayshortskip}{5pt}
+\setlength{\abovedisplayskip}{5pt} \setlength{\abovedisplayshortskip}{5pt}
 
 We begin with a description of our uncertain multivariate data and the corresponding attribute space, followed by a discussion of trait specification, choice of distance metric, generation of feature level-sets, and finally, generation of feature confidence level-sets.
 %
@@ -74,7 +74,7 @@ In the event that a trait $T$ results in an empty feature, our choice of distanc
 \vspace{-2mm}
 \subsection{Feature Level-Sets}
 \label{sec:fls}
-In general, a feature is defined as the pre-image of the trait $T$ in the spatial domain
+In general, a feature is defined as the pre-image of the trait $T$ in the spatial domain with
 \begin{equation}
 f^{-1}(T) = \left\{ x \in D |\; f(x) \in T \right\}
 \end{equation}
@@ -90,7 +90,7 @@ f^{-1}(T) = \left\{ x \in D |\; \forall i\;{\mu}_{i}(x) \cap [L_{i}, U_{i}] \neq
 
 To visualize the feature and its secondary structures, we performed three steps:
 %
-First, for trait $T$, we computed a binary volume $bvolume_{T}$~(Figure~\ref{fig:bvolumeT}) to represent the absence or existence of the feature at a specific grid point
+First, for trait $T$, we computed a binary volume $bvolume_{T}$~(Figure~\ref{fig:bvolumeT}) to represent the absence or existence of the feature at a specific grid point 
 %
 \begin{equation}
   bvolume_{T}(x) = \left \{
@@ -104,7 +104,7 @@ Second, we performed EDT using $bvolume_{T}$ as input to produce a distance fiel
 %
 %We used an algorithm proposed by Saito \textit{et al.}~\cite{saito1994new} to perform EDT.
 %
-As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field
+As a final step, we computed feature level-set $FLS_{T,K}$ as the level-set of level $K$ of the distance field such that
 %
 \begin{equation} 
 distance_{T}^{-1}(K) = \left\{ x \in D\; |\; distance_{T}(x) = K\right\}
@@ -130,7 +130,7 @@ Similar to the steps we used to compute $ZLS_{T}$, to extract feature confidence
 %
 To achieve this, we used the method by Zehner et al.~\cite{zehner2010visualization}. 
 %
-We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence interval $C$, and then, for each dimension $i$, calculated $bounds_{i,C}$~(Figure~\ref{fig:boundsC})
+We used the $Z$-score, or the number of standard deviations from the mean a value would be, for a given confidence interval $C$, and then, for each dimension $i$, calculated $bounds_{i,C}$~(Figure~\ref{fig:boundsC}) as
 %\fix{(should we replace variable C with variable Z, e.g.,  $bounds_{i,Z}(x)$ and so on, everywhere below? Only a suggestion for improving readability.)}
 %\begin{equation}
 %bound_{i,lower}(x) = mean_{i}(x) - Z*SD_{i}(x),
@@ -152,7 +152,6 @@ Using $bounds_{i,C}$ and $T$, we computed $bvolume_{T,C}$~(Figure~\ref{fig:bvolu
   \end{aligned} \right.
 \end{equation}
 %
-
 Following the extraction of $bvolume_{T,C}$, we performed EDT to compute $distance_{T,C}$.
 %
 Finally, we extracted the feature confidence level-set $FCLS_{T,C,K}$ as the level-set of level $K$ of the distance field
